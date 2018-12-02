@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WeatherReportViewController.swift
 //  KisanHub
 //
 //  Created by Vrushali Kulkarni on 01/12/18.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Charts
 
-class ViewController: UIViewController {
+class WeatherReportViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
