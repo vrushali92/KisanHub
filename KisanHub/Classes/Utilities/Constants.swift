@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+enum Location: String, CaseIterable {
+    case UK
+    case England
+    case Scotland
+    case Wales
+}
