@@ -13,11 +13,11 @@ protocol DropdownHeaderViewDelegate: class {
     func didSelect(_ header: DropdownHeaderView?)
 }
 
-class DropdownHeaderView: UITableViewHeaderFooterView {
+final class DropdownHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var accessoryImageView: UIImageView!
-    @IBOutlet fileprivate weak var touchableView: UIView!
+    @IBOutlet private weak var touchableView: UIView!
 
     weak var delegate: DropdownHeaderViewDelegate?
     static let identifier = "DropdownHeaderViewDelegateIdentifier"
