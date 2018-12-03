@@ -9,20 +9,18 @@
 import UIKit
 import Charts
 
-class WeatherReportViewController: UIViewController {
+final class WeatherReportViewController: UIViewController {
 
     @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var yearTableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var yearTableView: UITableView! {
-        didSet {
-            self.configureTableView()
-        }
-    }
+    @IBOutlet weak var yearTableView: UITableView!
     
     @IBOutlet private weak var graphContainerView: UIView!
     
     @IBAction func locationChanged(_ sender: Any) {
+        
+        
     }
     
     
@@ -32,10 +30,12 @@ class WeatherReportViewController: UIViewController {
     static private let cellIdentifier = "CustomTableViewCellIdentifier"
     private var previousRowSelected: Int?
     private var isDropdownOpen: Bool = false
+    private let weatherReportModel = WeatherReportViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+        self.configureTableView()
     }
     
     private func configureUI() {
@@ -46,6 +46,10 @@ class WeatherReportViewController: UIViewController {
             self.locationSegmentedControl.insertSegment(withTitle: value.element.rawValue, at: value.offset, animated: false)
         }
         self.locationSegmentedControl.selectedSegmentIndex = 0
+        let segmentText = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex)
+        if let segmentText = segmentText {
+            self.weatherReportModel.reportFor(location: (segmentText.locationForString()))
+        }
     }
     
     private func configureTableView() {
@@ -144,6 +148,13 @@ extension WeatherReportViewController: UITableViewDelegate {
         self.handleDropDown()
         self.previousRowSelected = indexPath.row
         tableView.reloadData()
+    }
+}
+
+extension WeatherReportViewController {
+    
+    func weatherReport(forLocation: Location) {
+        
     }
 }
 

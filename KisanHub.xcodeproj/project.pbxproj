@@ -20,6 +20,17 @@
 		1C7424BF21B2A0C4004314FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7424BE21B2A0C4004314FC /* Constants.swift */; };
 		1C7ACD6521B3807000B91F89 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6321B3806F00B91F89 /* CustomTableViewCell.swift */; };
 		1C7ACD6621B3807000B91F89 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6421B3806F00B91F89 /* CustomTableViewCell.xib */; };
+		1C7ACD6C21B3AD0400B91F89 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6B21B3AD0400B91F89 /* ChartView.swift */; };
+		1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6E21B3BC9A00B91F89 /* Record.swift */; };
+		1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */; };
+		1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9921B41E2200B91F89 /* Result.swift */; };
+		1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9C21B41FB300B91F89 /* NetworkConstants.swift */; };
+		1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9E21B4216500B91F89 /* APIClient.swift */; };
+		1C7ACDA121B4222600B91F89 /* KisanHubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA021B4222600B91F89 /* KisanHubAPIClient.swift */; };
+		1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA221B4235500B91F89 /* Parser.swift */; };
+		1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */; };
+		1C7ACDA821B456CF00B91F89 /* WeatherReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */; };
+		1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +95,17 @@
 		1C7424BE21B2A0C4004314FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C7ACD6321B3806F00B91F89 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C7ACD6421B3806F00B91F89 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		1C7ACD6B21B3AD0400B91F89 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		1C7ACD6E21B3BC9A00B91F89 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		1C7ACD9921B41E2200B91F89 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		1C7ACD9C21B41FB300B91F89 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		1C7ACD9E21B4216500B91F89 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		1C7ACDA021B4222600B91F89 /* KisanHubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubAPIClient.swift; sourceTree = "<group>"; };
+		1C7ACDA221B4235500B91F89 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportViewModel.swift; sourceTree = "<group>"; };
+		1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportService.swift; sourceTree = "<group>"; };
+		1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Request.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +178,9 @@
 		1C7424AF21B2958E004314FC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1C7ACDA421B4280A00B91F89 /* ViewModel */,
+				1C7ACD9421B41D4300B91F89 /* Network */,
+				1C7ACD6D21B3BC8800B91F89 /* Model */,
 				1C7424BD21B2A0AC004314FC /* Utilities */,
 				1C7424B821B29A97004314FC /* Views */,
 				1C7424B221B295AA004314FC /* AppDelegate */,
@@ -216,10 +241,9 @@
 		1C7424B821B29A97004314FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1C7424B921B29CBB004314FC /* DropdownHeaderView.swift */,
-				1C7424BA21B29CBB004314FC /* DropdownHeaderView.xib */,
-				1C7ACD6321B3806F00B91F89 /* CustomTableViewCell.swift */,
-				1C7ACD6421B3806F00B91F89 /* CustomTableViewCell.xib */,
+				1C7ACD6A21B3ACBB00B91F89 /* ChartView */,
+				1C7ACD6921B3AC8E00B91F89 /* CustomTableViewCell */,
+				1C7ACD6821B3AC7000B91F89 /* DropdownHeaderView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +254,87 @@
 				1C7424BE21B2A0C4004314FC /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1C7ACD6821B3AC7000B91F89 /* DropdownHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				1C7424B921B29CBB004314FC /* DropdownHeaderView.swift */,
+				1C7424BA21B29CBB004314FC /* DropdownHeaderView.xib */,
+			);
+			path = DropdownHeaderView;
+			sourceTree = "<group>";
+		};
+		1C7ACD6921B3AC8E00B91F89 /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACD6321B3806F00B91F89 /* CustomTableViewCell.swift */,
+				1C7ACD6421B3806F00B91F89 /* CustomTableViewCell.xib */,
+			);
+			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		1C7ACD6A21B3ACBB00B91F89 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACD6B21B3AD0400B91F89 /* ChartView.swift */,
+			);
+			path = ChartView;
+			sourceTree = "<group>";
+		};
+		1C7ACD6D21B3BC8800B91F89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACD6E21B3BC9A00B91F89 /* Record.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1C7ACD9421B41D4300B91F89 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACD9B21B41F8E00B91F89 /* Utilities */,
+				1C7ACD9621B41D8100B91F89 /* APIClient */,
+				1C7ACD9521B41D4C00B91F89 /* Protocols */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1C7ACD9521B41D4C00B91F89 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACD9921B41E2200B91F89 /* Result.swift */,
+				1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */,
+				1C7ACD9E21B4216500B91F89 /* APIClient.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1C7ACD9621B41D8100B91F89 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACDA021B4222600B91F89 /* KisanHubAPIClient.swift */,
+				1C7ACDA221B4235500B91F89 /* Parser.swift */,
+				1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		1C7ACD9B21B41F8E00B91F89 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACD9C21B41FB300B91F89 /* NetworkConstants.swift */,
+				1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1C7ACDA421B4280A00B91F89 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,11 +465,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7ACDA121B4222600B91F89 /* KisanHubAPIClient.swift in Sources */,
+				1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */,
 				1C74248421B29539004314FC /* WeatherReportViewController.swift in Sources */,
+				1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */,
+				1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */,
 				1C7ACD6521B3807000B91F89 /* CustomTableViewCell.swift in Sources */,
 				1C74248221B29539004314FC /* AppDelegate.swift in Sources */,
+				1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */,
 				1C7424BB21B29CBB004314FC /* DropdownHeaderView.swift in Sources */,
+				1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */,
+				1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */,
+				1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */,
+				1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */,
 				1C7424BF21B2A0C4004314FC /* Constants.swift in Sources */,
+				1C7ACDA821B456CF00B91F89 /* WeatherReportService.swift in Sources */,
+				1C7ACD6C21B3AD0400B91F89 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
