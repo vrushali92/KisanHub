@@ -18,7 +18,11 @@ final class WeatherReportViewModel {
             result.forEach { record in
                print(record.key, "\(record.value.value != nil)")
             }
+            
+            let db = DataStore(fileName: "/MetaData.json", directory: .documentDirectory)
+            db.save(data: result, forLocation: location, with: { status in
+                print(status)
+            })
         }
-        
     }
 }

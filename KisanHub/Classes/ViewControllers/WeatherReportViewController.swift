@@ -48,7 +48,7 @@ final class WeatherReportViewController: UIViewController {
         self.locationSegmentedControl.selectedSegmentIndex = 0
         let segmentText = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex)
         if let segmentText = segmentText {
-            self.weatherReportModel.reportFor(location: (segmentText.locationForString()))
+            self.weatherReportModel.reportFor(location: Location.location(fromString: segmentText))
         }
     }
     

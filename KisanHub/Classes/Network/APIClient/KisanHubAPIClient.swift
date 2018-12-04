@@ -23,6 +23,7 @@ final class KisanHubAPIClient: APIClient {
         let requests = Metrics.allCases.reduce(into: [Metrics: WeatherReportService]()) { map, metric in
             map[metric] = WeatherReportService(baseURL: self.url, location: location, matric: metric)
         }
+        
         requests.execute(withSession: self.session, completionHandler: completionHandler)
     }
 }

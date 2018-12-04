@@ -8,63 +8,76 @@
 
 import Foundation
 
-enum Location: String, CaseIterable {
+enum Location: String, CaseIterable, Codable {
     case UK
-    case England
-    case Scotland
-    case Wales
+    case england
+    case scotland
+    case wales
     
     var value: String {
         switch self {
         case .UK:
             return "UK"
-        case .England:
+        case .england:
             return "England"
-        case .Scotland:
+        case .scotland:
             return "Scotland"
-        case .Wales:
+        case .wales:
             return "Wales"
         }
     }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.value)
+    }
 }
 
-extension String {
+extension Location {
     
-    func locationForString() -> Location {
-        switch self {
+    static func location(fromString string: String) -> Location {
+        switch string {
         case Location.UK.rawValue:
-            return Location.UK
-        case Location.England.rawValue:
-            return Location.England
-        case Location.Scotland.rawValue:
-            return Location.Scotland
-        case Location.Wales.rawValue:
-            return Location.Wales
+            return .UK
+        case Location.england.rawValue:
+            return .england
+        case Location.scotland.rawValue:
+            return .scotland
+        case Location.wales.rawValue:
+            return .wales
         default:
-            return Location.UK
+            return .UK
         }
     }
 }
 
 enum Month: Int, Decodable {
     
-    case Jan = 1
-    case Feb
-    case March
-    case April
-    case May
-    case June
-    case July
-    case Aug
-    case Sept
-    case Oct
-    case Nov
-    case Dec
+    case jan = 1
+    case feb
+    case march
+    case april
+    case may
+    case june
+    case july
+    case aug
+    case sept
+    case oct
+    case nov
+    case dec
 }
 
-enum Metrics: String, CaseIterable {
+enum Metrics: String, CaseIterable, Decodable {
     
-    case MaxTemperature = "Tmax"
-    case MinTemperature = "Tmin"
-    case Rainfall
+    case maxTemperature = "Tmax"
+    case minTemperature = "Tmin"
+    case rainfall = "Rainfall"
+}
+
+extension Metrics: Encodable {
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.rawValue)
+    }
 }
