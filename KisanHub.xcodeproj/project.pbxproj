@@ -31,6 +31,9 @@
 		1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */; };
 		1C7ACDA821B456CF00B91F89 /* WeatherReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */; };
 		1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */; };
+		1C7ACDB221B5859D00B91F89 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB121B5859D00B91F89 /* Property List.plist */; };
+		1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */; };
+		1C7ACDB721B58C9F00B91F89 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB621B58C9F00B91F89 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportViewModel.swift; sourceTree = "<group>"; };
 		1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportService.swift; sourceTree = "<group>"; };
 		1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Request.swift"; sourceTree = "<group>"; };
+		1C7ACDB121B5859D00B91F89 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
+		1C7ACDB621B58C9F00B91F89 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,7 @@
 		1C7424AF21B2958E004314FC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1C7ACDAB21B57AF800B91F89 /* Database */,
 				1C7ACDA421B4280A00B91F89 /* ViewModel */,
 				1C7ACD9421B41D4300B91F89 /* Network */,
 				1C7ACD6D21B3BC8800B91F89 /* Model */,
@@ -337,6 +344,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1C7ACDAB21B57AF800B91F89 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACDB521B58C6200B91F89 /* Protocol */,
+				1C7ACDB121B5859D00B91F89 /* Property List.plist */,
+				1C7ACDB621B58C9F00B91F89 /* DataStore.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		1C7ACDB521B58C6200B91F89 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -443,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7ACDB221B5859D00B91F89 /* Property List.plist in Resources */,
 				1C7424BC21B29CBB004314FC /* DropdownHeaderView.xib in Resources */,
 				1C74248C21B2953B004314FC /* LaunchScreen.storyboard in Resources */,
 				1C74248921B2953B004314FC /* Assets.xcassets in Resources */,
@@ -468,9 +494,11 @@
 				1C7ACDA121B4222600B91F89 /* KisanHubAPIClient.swift in Sources */,
 				1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */,
 				1C74248421B29539004314FC /* WeatherReportViewController.swift in Sources */,
+				1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */,
 				1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */,
 				1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */,
 				1C7ACD6521B3807000B91F89 /* CustomTableViewCell.swift in Sources */,
+				1C7ACDB721B58C9F00B91F89 /* DataStore.swift in Sources */,
 				1C74248221B29539004314FC /* AppDelegate.swift in Sources */,
 				1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */,
 				1C7424BB21B29CBB004314FC /* DropdownHeaderView.swift in Sources */,

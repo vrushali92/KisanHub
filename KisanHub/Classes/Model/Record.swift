@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Record: Decodable {
+struct Record: Codable {
     let value: Double
     let year: Int
     let month: Int

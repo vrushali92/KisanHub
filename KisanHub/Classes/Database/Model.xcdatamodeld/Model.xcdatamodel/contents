@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Location1" representedClassName="Location1" syncable="YES" codeGenerationType="class">
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Metrics1" representedClassName="Metrics1" syncable="YES" codeGenerationType="class">
+        <attribute name="rainfall" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tmax" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tmin" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Record1" representedClassName="Record1" syncable="YES" codeGenerationType="class">
+        <attribute name="month" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Record1" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Metrics1" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Location1" positionX="-36" positionY="9" width="128" height="60"/>
+    </elements>
+</model>
