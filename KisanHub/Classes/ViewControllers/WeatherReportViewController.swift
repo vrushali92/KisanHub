@@ -16,39 +16,62 @@ final class WeatherReportViewController: UIViewController {
     @IBOutlet weak var yearTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var yearTableView: UITableView!
     
-    @IBOutlet private weak var graphContainerView: UIView!
+    @IBOutlet private weak var graphView: LineChartView!
     
     @IBAction func locationChanged(_ sender: Any) {
         
+        guard let selectedLocation = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex) else { return }
         
+//        switch selectedLocation {
+//
+//        case Location.UK.value:
+//            let location = Location.location(fromString: Location.UK.value)
+//            self.weatherReportModel.reportFor(location: location)
+//
+//        case Location.england.value:
+//            let location = Location.location(fromString: Location.england.value)
+//            self.weatherReportModel.reportFor(location: location)
+//
+//        case Location.scotland.value:
+//            let location = Location.location(fromString: Location.scotland.value)
+//            self.weatherReportModel.reportFor(location: location)
+//
+//        case Location.wales.value:
+//            let location = Location.location(fromString: Location.wales.value)
+//            self.weatherReportModel.reportFor(location: location)
+//
+//        default:
+//            break
+//        }
     }
-    
     
     private let yearArray = ["2017", "2001", "2000", "1997", "1910"]
     
-    static private let nibname = "CustomTableViewCell"
-    static private let cellIdentifier = "CustomTableViewCellIdentifier"
+    private static let nibname = "CustomTableViewCell"
+    private static let cellIdentifier = "CustomTableViewCellIdentifier"
     private var previousRowSelected: Int?
     private var isDropdownOpen: Bool = false
     private let weatherReportModel = WeatherReportViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureUI()
+        self.configureSegmentControl()
         self.configureTableView()
     }
     
-    private func configureUI() {
+    private func configureSegmentControl() {
         
         let title = Location.allCases.enumerated()
         self.locationSegmentedControl.removeAllSegments()
         for value in title {
-            self.locationSegmentedControl.insertSegment(withTitle: value.element.rawValue, at: value.offset, animated: false)
+            self.locationSegmentedControl.insertSegment(withTitle: value.element.value, at: value.offset, animated: false)
         }
         self.locationSegmentedControl.selectedSegmentIndex = 0
         let segmentText = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex)
         if let segmentText = segmentText {
-            self.weatherReportModel.reportFor(location: Location.location(fromString: segmentText))
+            self.weatherReportModel.report(forLocation: Location.location(fromString: segmentText)) {[weak self] chartData in
+                self?.graphView.data = chartData
+            }
         }
     }
     
@@ -70,6 +93,11 @@ final class WeatherReportViewController: UIViewController {
         self.yearTableView.delegate = self
     
     }
+    
+    private func configureChart() {
+    
+        self.graphView.chartDescription?.text = "Weather Report"
+    }
 }
 
 extension WeatherReportViewController {
@@ -83,7 +111,6 @@ extension WeatherReportViewController {
         } else {
             rowHeight = self.yearTableViewHeightConstraint.constant - (self.yearTableView.estimatedRowHeight * CGFloat(yearArray.count))
         }
-        
         
         UIView.animate(withDuration: 6) {
             self.yearTableViewHeightConstraint.constant = rowHeight
@@ -114,7 +141,6 @@ extension WeatherReportViewController: UITableViewDataSource {
         cell.textLabel?.text = self.yearArray[indexPath.row]
         cell.textLabel?.textAlignment = .center
         
-        
         if let previousRow = self.previousRowSelected,
             previousRow == indexPath.row {
             cell.accessoryType = .checkmark
@@ -122,7 +148,7 @@ extension WeatherReportViewController: UITableViewDataSource {
         } else {
             cell.accessoryType = .none
         }
-        
+        cell.backgroundColor = UIColor.yellow
         return cell
     }
     
@@ -142,11 +168,13 @@ extension WeatherReportViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: true)
         self.isDropdownOpen = false
         self.handleDropDown()
         self.previousRowSelected = indexPath.row
+        print(self.yearArray[indexPath.row])
         tableView.reloadData()
     }
 }
@@ -157,7 +185,3 @@ extension WeatherReportViewController {
         
     }
 }
-
-
-
-

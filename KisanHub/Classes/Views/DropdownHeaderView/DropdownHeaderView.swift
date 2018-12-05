@@ -22,7 +22,7 @@ final class DropdownHeaderView: UITableViewHeaderFooterView {
     weak var delegate: DropdownHeaderViewDelegate?
     static let identifier = "DropdownHeaderViewDelegateIdentifier"
     
-    @IBInspectable var headerTitle = "" {
+    var headerTitle = "" {
         didSet {
             self.title.text = self.headerTitle
         }

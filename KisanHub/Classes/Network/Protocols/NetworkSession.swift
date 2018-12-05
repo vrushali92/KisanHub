@@ -51,6 +51,7 @@ extension URLSession: NetworkSession {
         
         do {
             let urlRequest = try request.asURLRequest()
+            print(urlRequest)
             let completion: DataTaskCompletionCallback = { (data, response, error) in
                 if let error = error {
                     completionHandler(.failed(error))

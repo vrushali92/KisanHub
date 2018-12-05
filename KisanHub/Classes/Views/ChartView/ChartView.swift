@@ -10,7 +10,4 @@ import UIKit
 import Charts
 
 final class ChartView: LineChartView {
-
-    
-
 }

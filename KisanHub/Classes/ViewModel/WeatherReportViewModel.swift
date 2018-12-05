@@ -7,20 +7,29 @@
 //
 
 import Foundation
+import Charts
 
 final class WeatherReportViewModel {
     
-    private let apiClient: APIClient = KisanHubAPIClient()
+    private let apiClient: Interactor = KisanHubInteractor()
     
-    func reportFor(location: Location) {
+    func report(forLocation location: Location, with completionHandler: @escaping (ChartData) -> Void) {
         
         self.apiClient.fetchWeatherReportFor(location: location) { result in
             result.forEach { record in
                print(record.key, "\(record.value.value != nil)")
             }
-            
-            let db = DataStore(fileName: "/MetaData.json", directory: .documentDirectory)
-            db.save(data: result, forLocation: location, with: { status in
+            performOnMain {
+                
+                let chartData = ChartDataBuilder(data: result, location: location)
+                let data = chartData.prepareChartData(forLocation: location, year: 2011)
+                if let data = data {
+                    completionHandler(data)
+                }
+                
+            }
+            let database = DataStore(fileName: "MetaData.json", directory: .documentDirectory)
+            database.save(data: result, forLocation: location, with: { status in
                 print(status)
             })
         }

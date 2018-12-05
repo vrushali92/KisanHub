@@ -25,8 +25,8 @@
 		1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */; };
 		1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9921B41E2200B91F89 /* Result.swift */; };
 		1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9C21B41FB300B91F89 /* NetworkConstants.swift */; };
-		1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9E21B4216500B91F89 /* APIClient.swift */; };
-		1C7ACDA121B4222600B91F89 /* KisanHubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA021B4222600B91F89 /* KisanHubAPIClient.swift */; };
+		1C7ACD9F21B4216500B91F89 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9E21B4216500B91F89 /* Interactor.swift */; };
+		1C7ACDA121B4222600B91F89 /* KisanHubInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA021B4222600B91F89 /* KisanHubInteractor.swift */; };
 		1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA221B4235500B91F89 /* Parser.swift */; };
 		1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */; };
 		1C7ACDA821B456CF00B91F89 /* WeatherReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */; };
@@ -34,6 +34,8 @@
 		1C7ACDB221B5859D00B91F89 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB121B5859D00B91F89 /* Property List.plist */; };
 		1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */; };
 		1C7ACDB721B58C9F00B91F89 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB621B58C9F00B91F89 /* DataStore.swift */; };
+		1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */; };
+		1CE1DF0A21B786E600F39891 /* ThreadUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0921B786E600F39891 /* ThreadUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +105,8 @@
 		1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		1C7ACD9921B41E2200B91F89 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		1C7ACD9C21B41FB300B91F89 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
-		1C7ACD9E21B4216500B91F89 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		1C7ACDA021B4222600B91F89 /* KisanHubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubAPIClient.swift; sourceTree = "<group>"; };
+		1C7ACD9E21B4216500B91F89 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		1C7ACDA021B4222600B91F89 /* KisanHubInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubInteractor.swift; sourceTree = "<group>"; };
 		1C7ACDA221B4235500B91F89 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportViewModel.swift; sourceTree = "<group>"; };
 		1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportService.swift; sourceTree = "<group>"; };
@@ -112,6 +114,8 @@
 		1C7ACDB121B5859D00B91F89 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
 		1C7ACDB621B58C9F00B91F89 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataBuilder.swift; sourceTree = "<group>"; };
+		1CE1DF0921B786E600F39891 /* ThreadUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 		1C7424AF21B2958E004314FC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1CE1DF0521B6DD5800F39891 /* ChartDataSource */,
 				1C7ACDAB21B57AF800B91F89 /* Database */,
 				1C7ACDA421B4280A00B91F89 /* ViewModel */,
 				1C7ACD9421B41D4300B91F89 /* Network */,
@@ -259,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				1C7424BE21B2A0C4004314FC /* Constants.swift */,
+				1CE1DF0921B786E600F39891 /* ThreadUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -312,7 +318,7 @@
 			children = (
 				1C7ACD9921B41E2200B91F89 /* Result.swift */,
 				1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */,
-				1C7ACD9E21B4216500B91F89 /* APIClient.swift */,
+				1C7ACD9E21B4216500B91F89 /* Interactor.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -320,7 +326,7 @@
 		1C7ACD9621B41D8100B91F89 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				1C7ACDA021B4222600B91F89 /* KisanHubAPIClient.swift */,
+				1C7ACDA021B4222600B91F89 /* KisanHubInteractor.swift */,
 				1C7ACDA221B4235500B91F89 /* Parser.swift */,
 				1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */,
 			);
@@ -362,6 +368,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		1CE1DF0521B6DD5800F39891 /* ChartDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */,
+			);
+			path = ChartDataSource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -370,6 +384,7 @@
 			buildConfigurationList = 1C74249B21B2953B004314FC /* Build configuration list for PBXNativeTarget "KisanHub" */;
 			buildPhases = (
 				1C74247A21B29539004314FC /* Sources */,
+				1CE1DF0B21B789E100F39891 /* Lint */,
 				1C74247B21B29539004314FC /* Frameworks */,
 				1C74247C21B29539004314FC /* Resources */,
 				1C7424AE21B2955F004314FC /* Embed Frameworks */,
@@ -486,21 +501,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CE1DF0B21B789E100F39891 /* Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Lint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C74247A21B29539004314FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7ACDA121B4222600B91F89 /* KisanHubAPIClient.swift in Sources */,
+				1C7ACDA121B4222600B91F89 /* KisanHubInteractor.swift in Sources */,
 				1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */,
 				1C74248421B29539004314FC /* WeatherReportViewController.swift in Sources */,
 				1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */,
 				1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */,
+				1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */,
 				1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */,
 				1C7ACD6521B3807000B91F89 /* CustomTableViewCell.swift in Sources */,
 				1C7ACDB721B58C9F00B91F89 /* DataStore.swift in Sources */,
 				1C74248221B29539004314FC /* AppDelegate.swift in Sources */,
-				1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */,
+				1C7ACD9F21B4216500B91F89 /* Interactor.swift in Sources */,
 				1C7424BB21B29CBB004314FC /* DropdownHeaderView.swift in Sources */,
 				1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */,
 				1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */,
@@ -508,6 +545,7 @@
 				1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */,
 				1C7424BF21B2A0C4004314FC /* Constants.swift in Sources */,
 				1C7ACDA821B456CF00B91F89 /* WeatherReportService.swift in Sources */,
+				1CE1DF0A21B786E600F39891 /* ThreadUtility.swift in Sources */,
 				1C7ACD6C21B3AD0400B91F89 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

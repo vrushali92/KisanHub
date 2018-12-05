@@ -29,6 +29,6 @@ struct WeatherReportService: DecodableDataService {
     }
     
     private var pathFragment: String {
-        return "\(self.matric.rawValue)-" + "\(self.location.rawValue)" + type(of: self).jsonExtension
+        return "\(self.matric.rawValue)-" + "\(self.location.value)" + type(of: self).jsonExtension
     }
 }
