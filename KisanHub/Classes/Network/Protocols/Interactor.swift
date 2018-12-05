@@ -8,11 +8,21 @@
 
 import Foundation
 
-protocol Interactor {
-    
-    typealias CompletionHandler = (ResultMap) -> Void
+typealias CompletionHandler = (Result<RecordMap>) -> Void
+
+protocol APIClient {
     
     init(baseURL: URL, session: NetworkSession)
+    
+    func fetchWeatherReportFor(location: Location, on completionHandler: @escaping CompletionHandler)
+}
+
+protocol Interactor {
+    
+    var client: APIClient { get }
+    var dataStore: DataStore { get }
+    
+    init(client: APIClient, dataStore: DataStore)
     
     func fetchWeatherReportFor(location: Location, on completionHandler: @escaping CompletionHandler)
 }

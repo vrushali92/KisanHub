@@ -8,7 +8,6 @@
 
 import Foundation
 
-typealias ResultMap = [Metrics: Result<[Record]>]
 typealias RecordMap = [Metrics: [Record]]
 
 enum NetworkConstants {

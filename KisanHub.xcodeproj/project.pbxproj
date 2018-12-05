@@ -31,9 +31,8 @@
 		1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */; };
 		1C7ACDA821B456CF00B91F89 /* WeatherReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */; };
 		1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */; };
-		1C7ACDB221B5859D00B91F89 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB121B5859D00B91F89 /* Property List.plist */; };
 		1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */; };
-		1C7ACDB721B58C9F00B91F89 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB621B58C9F00B91F89 /* DataStore.swift */; };
+		1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */; };
 		1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */; };
 		1CE1DF0A21B786E600F39891 /* ThreadUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0921B786E600F39891 /* ThreadUtility.swift */; };
 /* End PBXBuildFile section */
@@ -111,9 +110,8 @@
 		1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportViewModel.swift; sourceTree = "<group>"; };
 		1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportService.swift; sourceTree = "<group>"; };
 		1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Request.swift"; sourceTree = "<group>"; };
-		1C7ACDB121B5859D00B91F89 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
-		1C7ACDB621B58C9F00B91F89 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubDataStore.swift; sourceTree = "<group>"; };
 		1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataBuilder.swift; sourceTree = "<group>"; };
 		1CE1DF0921B786E600F39891 /* ThreadUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,7 +195,6 @@
 				1C7424B821B29A97004314FC /* Views */,
 				1C7424B221B295AA004314FC /* AppDelegate */,
 				1C7424B521B295C6004314FC /* Extension */,
-				1C7424B421B295BB004314FC /* Protocol */,
 				1C7424B321B295B2004314FC /* ViewControllers */,
 			);
 			path = Classes;
@@ -234,13 +231,6 @@
 				1C74248321B29539004314FC /* WeatherReportViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		1C7424B421B295BB004314FC /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		1C7424B521B295C6004314FC /* Extension */ = {
@@ -354,8 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				1C7ACDB521B58C6200B91F89 /* Protocol */,
-				1C7ACDB121B5859D00B91F89 /* Property List.plist */,
-				1C7ACDB621B58C9F00B91F89 /* DataStore.swift */,
+				1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -483,7 +472,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7ACDB221B5859D00B91F89 /* Property List.plist in Resources */,
 				1C7424BC21B29CBB004314FC /* DropdownHeaderView.xib in Resources */,
 				1C74248C21B2953B004314FC /* LaunchScreen.storyboard in Resources */,
 				1C74248921B2953B004314FC /* Assets.xcassets in Resources */,
@@ -535,7 +523,7 @@
 				1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */,
 				1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */,
 				1C7ACD6521B3807000B91F89 /* CustomTableViewCell.swift in Sources */,
-				1C7ACDB721B58C9F00B91F89 /* DataStore.swift in Sources */,
+				1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */,
 				1C74248221B29539004314FC /* AppDelegate.swift in Sources */,
 				1C7ACD9F21B4216500B91F89 /* Interactor.swift in Sources */,
 				1C7424BB21B29CBB004314FC /* DropdownHeaderView.swift in Sources */,

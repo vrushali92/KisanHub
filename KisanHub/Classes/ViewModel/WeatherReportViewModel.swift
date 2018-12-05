@@ -9,29 +9,55 @@
 import Foundation
 import Charts
 
+protocol WeatherReportViewModelEventsDelegate: AnyObject {
+    func handle(event: WeatherReportViewModel.Event)
+}
+
 final class WeatherReportViewModel {
     
-    private let apiClient: Interactor = KisanHubInteractor()
+    enum Event {
+        case loading
+        case reportAvailable
+        case failed(Error)
+    }
     
-    func report(forLocation location: Location, with completionHandler: @escaping (ChartData) -> Void) {
+    private let interactor: Interactor = KisanHubInteractor()
+    private var records: RecordMap?
+    
+    weak var eventDelegate: WeatherReportViewModelEventsDelegate?
+    
+    func fetchReport(forLocation location: Location) {
         
-        self.apiClient.fetchWeatherReportFor(location: location) { result in
-            result.forEach { record in
-               print(record.key, "\(record.value.value != nil)")
-            }
+        self.interactor.fetchWeatherReportFor(location: location) {[weak self] result in
             performOnMain {
-                
-                let chartData = ChartDataBuilder(data: result, location: location)
-                let data = chartData.prepareChartData(forLocation: location, year: 2011)
-                if let data = data {
-                    completionHandler(data)
+                switch result {
+                case .success(let records):
+                    self?.records = records
+                    self?.eventDelegate?.handle(event: .reportAvailable)
+                case .failed(let error):
+                    self?.eventDelegate?.handle(event: .failed(error))
                 }
-                
             }
-            let database = DataStore(fileName: "MetaData.json", directory: .documentDirectory)
-            database.save(data: result, forLocation: location, with: { status in
-                print(status)
-            })
         }
+    }
+    
+    func chartData(forYear year: Int) -> LineChartData? {
+        guard let records = self.records else { return nil }
+        
+        return ChartDataBuilder.prepareChartData(fromRecords: records, year: year)
+    }
+    
+    func yearRange() -> [Int]? {
+        
+        guard let records = self.records else {
+            return nil
+        }
+        
+        var sortedYears = [Int]()
+        for element in records {
+            sortedYears = element.value.compactMap { $0.year }
+        }
+        let objects = Set(sortedYears.map { $0 }).sorted(by: >)
+        return objects
     }
 }
