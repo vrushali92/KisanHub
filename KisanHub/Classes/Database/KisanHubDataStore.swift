@@ -1,5 +1,5 @@
 //
-//  DataStore.swift
+//  KisanHubDataStore.swift
 //  KisanHub
 //
 //  Created by Vrushali Kulkarni on 03/12/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class DataStore: DataStoreProtocol {
+final class KisanHubDataStore: DataStore {
     
     private let fileName: String
     
@@ -18,24 +18,31 @@ final class DataStore: DataStoreProtocol {
     
     private lazy var location = FileManager.default.urls(for: self.directory, in: .userDomainMask)[0].appendingPathComponent(self.fileName)
     
-    init(fileName: String, directory: FileManager.SearchPathDirectory) {
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - fileName: <#fileName description#>
+    ///   - directory: <#directory description#>
+    init(fileName: String = "MetaData.json", directory: FileManager.SearchPathDirectory = .documentDirectory) {
         self.fileName = fileName
         self.directory = directory
     }
     
-    func save(data: ResultMap, forLocation location: Location, with completionHandler: @escaping ((Bool) -> Void)) {
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - data: <#data description#>
+    ///   - location: <#location description#>
+    ///   - completionHandler: <#completionHandler description#>
+    func save(data: RecordMap, forLocation location: Location, with completionHandler: ((Bool) -> Void)?) {
         
         do {
 
             try self.load()
-            self.inMemoryCache[location] = data.reduce(into: [Metrics: [Record]](), { base, element in
-                if let records = element.value.value {
-                    base[element.key] = records
-                }
-            })
+            self.inMemoryCache[location] = data
             self.write(with: completionHandler)
         } catch {
-            completionHandler(false)
+            completionHandler?(false)
         }
         
     }
@@ -72,7 +79,7 @@ final class DataStore: DataStoreProtocol {
         }
     }
     
-    private func write(with completionHandler: @escaping ((Bool) -> Void)) {
+    private func write(with completionHandler: ((Bool) -> Void)?) {
         
         DispatchQueue.global(qos: .background).async { [cache = self.inMemoryCache, path = self.location] in
             do {
@@ -81,10 +88,10 @@ final class DataStore: DataStoreProtocol {
                 encoder.outputFormatting = [.sortedKeys, .prettyPrinted]
                 let data = try encoder.encode(cache)
                 try data.write(to: path, options: [.completeFileProtectionUnlessOpen, .atomic])
-                completionHandler(true)
+                completionHandler?(true)
             } catch {
                 print(error)
-                completionHandler(false)
+                completionHandler?(false)
             }
         }
     }

@@ -9,21 +9,26 @@
 import Foundation
 
 extension Dictionary where Key == Metrics, Value == WeatherReportService {
-    func execute(withSession session: NetworkSession, completionHandler handler: @escaping ((ResultMap) -> Void)) {
+    
+    func execute(withSession session: NetworkSession, completionHandler handler: @escaping CompletionHandler) {
+        
         let group = DispatchGroup()
-        var responseMap = ResultMap()
+        var responseMap = RecordMap()
         
         for key in self.keys {
             guard let service = self[key] else { continue }
             group.enter()
             service.execute(withSession: session) { result in
-                responseMap[key] = result
+                responseMap[key] = result.value
                 group.leave()
             }
         }
         
         group.notify(queue: DispatchQueue.global()) {
-            handler(responseMap)
+            
+            guard !responseMap.isEmpty else { return }
+            
+            handler(Result.success(responseMap))
         }
     }
 }

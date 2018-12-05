@@ -10,53 +10,40 @@ import UIKit
 import Charts
 
 final class WeatherReportViewController: UIViewController {
-
-    @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
-    
-    @IBOutlet weak var yearTableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var yearTableView: UITableView!
-    
-    @IBOutlet private weak var graphView: LineChartView!
-    
-    @IBAction func locationChanged(_ sender: Any) {
-        
-        guard let selectedLocation = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex) else { return }
-        
-//        switch selectedLocation {
-//
-//        case Location.UK.value:
-//            let location = Location.location(fromString: Location.UK.value)
-//            self.weatherReportModel.reportFor(location: location)
-//
-//        case Location.england.value:
-//            let location = Location.location(fromString: Location.england.value)
-//            self.weatherReportModel.reportFor(location: location)
-//
-//        case Location.scotland.value:
-//            let location = Location.location(fromString: Location.scotland.value)
-//            self.weatherReportModel.reportFor(location: location)
-//
-//        case Location.wales.value:
-//            let location = Location.location(fromString: Location.wales.value)
-//            self.weatherReportModel.reportFor(location: location)
-//
-//        default:
-//            break
-//        }
-    }
-    
-    private let yearArray = ["2017", "2001", "2000", "1997", "1910"]
     
     private static let nibname = "CustomTableViewCell"
     private static let cellIdentifier = "CustomTableViewCellIdentifier"
+    
+    @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var yearTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var yearTableView: UITableView!
+    @IBOutlet private weak var graphView: LineChartView!
+
+    private var yearArray = [2017, 2001, 2000, 1997, 1910]
+    
     private var previousRowSelected: Int?
     private var isDropdownOpen: Bool = false
-    private let weatherReportModel = WeatherReportViewModel()
+    private var selectedYearIndex: Int = 0
+    
+    private lazy var weatherReportModel: WeatherReportViewModel = {
+        let viewModel = WeatherReportViewModel()
+        viewModel.eventDelegate = self
+        return viewModel
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureUI()
+        self.fetchReport(forLocation: .unitedKingdom)
+        performOnMain {
+            self.updateYears()
+        }
+    }
+    
+    private func configureUI() {
         self.configureSegmentControl()
         self.configureTableView()
+        self.configureChart()
     }
     
     private func configureSegmentControl() {
@@ -67,12 +54,6 @@ final class WeatherReportViewController: UIViewController {
             self.locationSegmentedControl.insertSegment(withTitle: value.element.value, at: value.offset, animated: false)
         }
         self.locationSegmentedControl.selectedSegmentIndex = 0
-        let segmentText = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex)
-        if let segmentText = segmentText {
-            self.weatherReportModel.report(forLocation: Location.location(fromString: segmentText)) {[weak self] chartData in
-                self?.graphView.data = chartData
-            }
-        }
     }
     
     private func configureTableView() {
@@ -97,6 +78,24 @@ final class WeatherReportViewController: UIViewController {
     private func configureChart() {
     
         self.graphView.chartDescription?.text = "Weather Report"
+    }
+    
+    private func updateYears() {
+    
+        guard let yearRange = self.weatherReportModel.yearRange() else { return }
+        self.yearArray = Array(yearRange)
+    }
+    
+    private func fetchReport(forLocation location: Location) {
+        self.weatherReportModel.fetchReport(forLocation: location)
+    }
+    
+    @IBAction private func locationChanged(_ sender: Any?) {
+        
+        guard let selectedLocation = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex) else { return }
+        
+        self.fetchReport(forLocation: Location.location(fromString: selectedLocation))
+        self.updateYears()
     }
 }
 
@@ -138,7 +137,7 @@ extension WeatherReportViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: type(of: self).cellIdentifier, for: indexPath)
-        cell.textLabel?.text = self.yearArray[indexPath.row]
+        cell.textLabel?.text = String(self.yearArray[indexPath.row])
         cell.textLabel?.textAlignment = .center
         
         if let previousRow = self.previousRowSelected,
@@ -162,26 +161,33 @@ extension WeatherReportViewController: UITableViewDelegate {
         if let headerView = headerView as? DropdownHeaderView {
             headerView.delegate = self
             let index = self.previousRowSelected ?? 0
-            headerView.headerTitle = self.yearArray[index]
+            headerView.headerTitle = String(self.yearArray[index])
         }
         return headerView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: true)
+        self.selectedYearIndex = indexPath.row
         self.isDropdownOpen = false
         self.handleDropDown()
         self.previousRowSelected = indexPath.row
         print(self.yearArray[indexPath.row])
         tableView.reloadData()
+        
+        self.graphView.data = self.weatherReportModel.chartData(forYear: self.yearArray[indexPath.row])
     }
 }
 
-extension WeatherReportViewController {
-    
-    func weatherReport(forLocation: Location) {
-        
+extension WeatherReportViewController: WeatherReportViewModelEventsDelegate {
+    func handle(event: WeatherReportViewModel.Event) {
+        switch event {
+        case .loading:
+            print("Show loading view")
+        case .failed(let error):
+            print(error)
+        case .reportAvailable:
+            self.graphView.data = self.weatherReportModel.chartData(forYear: self.yearArray[self.selectedYearIndex])
+        }
     }
 }

@@ -8,31 +8,20 @@
 
 import Foundation
 
-enum Location: String, CaseIterable, Codable {
+enum Location: String, CaseIterable {
     
-    case unitedKingdom
-    case england
-    case scotland
-    case wales
+    case unitedKingdom = "UK"
+    case england = "England"
+    case scotland = "Scotland"
+    case wales = "Wales"
     
     var value: String {
-        switch self {
-        case .unitedKingdom:
-            return "UK"
-        case .england:
-            return "England"
-        case .scotland:
-            return "Scotland"
-        case .wales:
-            return "Wales"
-        }
+        return self.rawValue
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(self.value)
-    }
 }
+
+extension Location: Codable {}
 
 extension Location {
     

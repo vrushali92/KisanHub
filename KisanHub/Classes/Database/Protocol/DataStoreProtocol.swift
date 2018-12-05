@@ -8,11 +8,13 @@
 
 import Foundation
 
-protocol DataStoreProtocol {
+protocol DataStore {
+    
+    typealias ComplationHandler = (Bool) -> Void
     
     func load() throws
     
-    func save(data: ResultMap, forLocation location: Location, with completionHandler: @escaping ((Bool) -> Void))
+    func save(data: RecordMap, forLocation location: Location, with completionHandler: ComplationHandler?)
     
     func retrieve(ForLocation location: Location) -> RecordMap?
 }
