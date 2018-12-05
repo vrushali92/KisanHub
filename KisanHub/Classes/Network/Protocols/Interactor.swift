@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol APIClient {
+protocol Interactor {
     
     typealias CompletionHandler = (ResultMap) -> Void
     

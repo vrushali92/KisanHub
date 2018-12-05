@@ -9,14 +9,15 @@
 import Foundation
 
 enum Location: String, CaseIterable, Codable {
-    case UK
+    
+    case unitedKingdom
     case england
     case scotland
     case wales
     
     var value: String {
         switch self {
-        case .UK:
+        case .unitedKingdom:
             return "UK"
         case .england:
             return "England"
@@ -37,16 +38,16 @@ extension Location {
     
     static func location(fromString string: String) -> Location {
         switch string {
-        case Location.UK.rawValue:
-            return .UK
-        case Location.england.rawValue:
+        case Location.unitedKingdom.value:
+            return .unitedKingdom
+        case Location.england.value:
             return .england
-        case Location.scotland.rawValue:
+        case Location.scotland.value:
             return .scotland
-        case Location.wales.rawValue:
+        case Location.wales.value:
             return .wales
         default:
-            return .UK
+            return .unitedKingdom
         }
     }
 }

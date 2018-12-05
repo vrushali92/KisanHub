@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class KisanHubAPIClient: APIClient {
+final class KisanHubInteractor: Interactor {
     
     private let url: URL
     private let session: NetworkSession

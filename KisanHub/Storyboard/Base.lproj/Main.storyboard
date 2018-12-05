@@ -25,12 +25,12 @@
                                     <segment title="Second"/>
                                 </segments>
                                 <connections>
-                                    <action selector="locationChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="taZ-dF-6U3"/>
+                                    <action selector="locationChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="L5V-5W-5fY"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYr-N8-8aR">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYr-N8-8aR" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="171" width="375" height="496"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.9700731635093689" blue="0.54284536838531494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kn6-fH-0JT">
                                 <rect key="frame" x="261" y="111" width="104" height="36"/>
@@ -56,7 +56,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="graphContainerView" destination="SYr-N8-8aR" id="dDN-gq-W10"/>
+                        <outlet property="graphView" destination="SYr-N8-8aR" id="dDN-gq-W10"/>
                         <outlet property="locationSegmentedControl" destination="nXq-TY-Txl" id="ZKw-r1-v1l"/>
                         <outlet property="yearTableView" destination="Kn6-fH-0JT" id="Hu6-hx-aPw"/>
                         <outlet property="yearTableViewHeightConstraint" destination="pXQ-PX-rY1" id="fu0-ri-7TE"/>
