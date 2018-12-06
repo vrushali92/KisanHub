@@ -32,34 +32,32 @@
                                 <rect key="frame" x="0.0" y="171" width="375" height="496"/>
                                 <color key="backgroundColor" red="1" green="0.9700731635093689" blue="0.54284536838531494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kn6-fH-0JT">
-                                <rect key="frame" x="261" y="111" width="104" height="36"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="pXQ-PX-rY1"/>
-                                </constraints>
-                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SYV-c5-LKd">
+                                <rect key="frame" x="199" y="121" width="160" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SYr-N8-8aR" firstAttribute="top" secondItem="nXq-TY-Txl" secondAttribute="bottom" constant="75" id="1ru-x0-bq2"/>
-                            <constraint firstItem="Kn6-fH-0JT" firstAttribute="top" secondItem="nXq-TY-Txl" secondAttribute="bottom" constant="15" id="79a-co-8I6"/>
                             <constraint firstItem="nXq-TY-Txl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="A0C-Kx-LK3"/>
                             <constraint firstItem="nXq-TY-Txl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="EFz-TC-Gzl"/>
+                            <constraint firstItem="SYV-c5-LKd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="199" id="GlW-Lk-1sl"/>
                             <constraint firstItem="SYr-N8-8aR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JcY-uj-jhI"/>
-                            <constraint firstItem="Kn6-fH-0JT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="261" id="MbS-18-cBv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kn6-fH-0JT" secondAttribute="trailing" constant="10" id="P1q-KM-3hh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SYV-c5-LKd" secondAttribute="trailing" constant="16" id="ULp-mw-XYd"/>
                             <constraint firstItem="SYr-N8-8aR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Z48-uX-t6o"/>
+                            <constraint firstItem="SYV-c5-LKd" firstAttribute="top" secondItem="nXq-TY-Txl" secondAttribute="bottom" constant="25" id="dvq-5Y-8bj"/>
                             <constraint firstItem="SYr-N8-8aR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ikl-dl-Pbe"/>
                             <constraint firstItem="nXq-TY-Txl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w3N-4f-HZi"/>
+                            <constraint firstItem="SYr-N8-8aR" firstAttribute="top" secondItem="SYV-c5-LKd" secondAttribute="bottom" constant="20" id="yil-fD-sQf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="graphView" destination="SYr-N8-8aR" id="dDN-gq-W10"/>
                         <outlet property="locationSegmentedControl" destination="nXq-TY-Txl" id="ZKw-r1-v1l"/>
-                        <outlet property="yearTableView" destination="Kn6-fH-0JT" id="Hu6-hx-aPw"/>
-                        <outlet property="yearTableViewHeightConstraint" destination="pXQ-PX-rY1" id="fu0-ri-7TE"/>
+                        <outlet property="yearTextField" destination="SYV-c5-LKd" id="XZN-3B-HGT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

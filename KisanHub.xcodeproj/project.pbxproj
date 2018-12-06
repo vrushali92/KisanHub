@@ -15,11 +15,7 @@
 		1C74249721B2953B004314FC /* KisanHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C74249621B2953B004314FC /* KisanHubTests.swift */; };
 		1C7424AA21B2955F004314FC /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7424A721B2954B004314FC /* Charts.framework */; };
 		1C7424AB21B2955F004314FC /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7424A721B2954B004314FC /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1C7424BB21B29CBB004314FC /* DropdownHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7424B921B29CBB004314FC /* DropdownHeaderView.swift */; };
-		1C7424BC21B29CBB004314FC /* DropdownHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7424BA21B29CBB004314FC /* DropdownHeaderView.xib */; };
 		1C7424BF21B2A0C4004314FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7424BE21B2A0C4004314FC /* Constants.swift */; };
-		1C7ACD6521B3807000B91F89 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6321B3806F00B91F89 /* CustomTableViewCell.swift */; };
-		1C7ACD6621B3807000B91F89 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6421B3806F00B91F89 /* CustomTableViewCell.xib */; };
 		1C7ACD6C21B3AD0400B91F89 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6B21B3AD0400B91F89 /* ChartView.swift */; };
 		1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6E21B3BC9A00B91F89 /* Record.swift */; };
 		1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */; };
@@ -94,11 +90,7 @@
 		1C74249621B2953B004314FC /* KisanHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubTests.swift; sourceTree = "<group>"; };
 		1C74249821B2953B004314FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C7424A121B2954B004314FC /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Libraries/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
-		1C7424B921B29CBB004314FC /* DropdownHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownHeaderView.swift; sourceTree = "<group>"; };
-		1C7424BA21B29CBB004314FC /* DropdownHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownHeaderView.xib; sourceTree = "<group>"; };
 		1C7424BE21B2A0C4004314FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		1C7ACD6321B3806F00B91F89 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		1C7ACD6421B3806F00B91F89 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		1C7ACD6B21B3AD0400B91F89 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		1C7ACD6E21B3BC9A00B91F89 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
@@ -194,7 +186,6 @@
 				1C7424BD21B2A0AC004314FC /* Utilities */,
 				1C7424B821B29A97004314FC /* Views */,
 				1C7424B221B295AA004314FC /* AppDelegate */,
-				1C7424B521B295C6004314FC /* Extension */,
 				1C7424B321B295B2004314FC /* ViewControllers */,
 			);
 			path = Classes;
@@ -233,19 +224,10 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		1C7424B521B295C6004314FC /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		1C7424B821B29A97004314FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1C7ACD6A21B3ACBB00B91F89 /* ChartView */,
-				1C7ACD6921B3AC8E00B91F89 /* CustomTableViewCell */,
-				1C7ACD6821B3AC7000B91F89 /* DropdownHeaderView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,24 +239,6 @@
 				1CE1DF0921B786E600F39891 /* ThreadUtility.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		1C7ACD6821B3AC7000B91F89 /* DropdownHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				1C7424B921B29CBB004314FC /* DropdownHeaderView.swift */,
-				1C7424BA21B29CBB004314FC /* DropdownHeaderView.xib */,
-			);
-			path = DropdownHeaderView;
-			sourceTree = "<group>";
-		};
-		1C7ACD6921B3AC8E00B91F89 /* CustomTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				1C7ACD6321B3806F00B91F89 /* CustomTableViewCell.swift */,
-				1C7ACD6421B3806F00B91F89 /* CustomTableViewCell.xib */,
-			);
-			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 		1C7ACD6A21B3ACBB00B91F89 /* ChartView */ = {
@@ -472,10 +436,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7424BC21B29CBB004314FC /* DropdownHeaderView.xib in Resources */,
 				1C74248C21B2953B004314FC /* LaunchScreen.storyboard in Resources */,
 				1C74248921B2953B004314FC /* Assets.xcassets in Resources */,
-				1C7ACD6621B3807000B91F89 /* CustomTableViewCell.xib in Resources */,
 				1C74248721B29539004314FC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,11 +484,9 @@
 				1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */,
 				1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */,
 				1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */,
-				1C7ACD6521B3807000B91F89 /* CustomTableViewCell.swift in Sources */,
 				1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */,
 				1C74248221B29539004314FC /* AppDelegate.swift in Sources */,
 				1C7ACD9F21B4216500B91F89 /* Interactor.swift in Sources */,
-				1C7424BB21B29CBB004314FC /* DropdownHeaderView.swift in Sources */,
 				1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */,
 				1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */,
 				1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */,
