@@ -53,8 +53,18 @@ final class WeatherReportViewController: UIViewController {
         datePickerView.addTarget(self,
                                  action: #selector(WeatherReportViewController.dateChanged(datePickerView:)),
                                  for: .valueChanged)
+
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(WeatherReportViewController.viewTapped(gestureRecognizer:)))
+
+        self.view.addGestureRecognizer(tapGesture)
         
         self.yearTextField.inputView = datePickerView
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        
+        self.view.endEditing(true)
     }
     
     @objc func dateChanged(datePickerView: UIDatePicker) {
