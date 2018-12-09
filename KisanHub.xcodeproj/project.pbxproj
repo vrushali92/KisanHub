@@ -28,6 +28,7 @@
 		1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */; };
 		1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */; };
 		1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */; };
+		1CCD74BD21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74BC21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift */; };
 		1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */; };
 		1CE1DF0A21B786E600F39891 /* ThreadUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0921B786E600F39891 /* ThreadUtility.swift */; };
 		5FF7977B53D55A2C7C3053EE /* Pods_KisanHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70EF342F6BD7D2D2BAF10E4D /* Pods_KisanHub.framework */; };
@@ -84,6 +85,7 @@
 		1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
 		1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubDataStore.swift; sourceTree = "<group>"; };
 		1CBB6F0E76AFCB20479EDE45 /* Pods-KisanHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KisanHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-KisanHub/Pods-KisanHub.release.xcconfig"; sourceTree = "<group>"; };
+		1CCD74BC21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProvider.swift; sourceTree = "<group>"; };
 		1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataBuilder.swift; sourceTree = "<group>"; };
 		1CE1DF0921B786E600F39891 /* ThreadUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadUtility.swift; sourceTree = "<group>"; };
 		23007A25FE688A59E328D2DC /* Pods_KisanHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KisanHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 		1C7424BD21B2A0AC004314FC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1CCD74BC21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift */,
 				1C7424BE21B2A0C4004314FC /* Constants.swift */,
 				1CE1DF0921B786E600F39891 /* ThreadUtility.swift */,
 			);
@@ -534,6 +537,7 @@
 				1C7ACDA121B4222600B91F89 /* KisanHubInteractor.swift in Sources */,
 				1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */,
 				1C74248421B29539004314FC /* WeatherReportViewController.swift in Sources */,
+				1CCD74BD21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift in Sources */,
 				1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */,
 				1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */,
 				1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */,

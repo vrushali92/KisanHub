@@ -12,8 +12,8 @@ import MBProgressHUD
 
 final class WeatherReportViewController: UIViewController {
     
-    static private let doneButton = "Done"
-    static private let cancelButton = "Cancel"
+    private static let doneButton = "Done"
+    private static let cancelButton = "Cancel"
     
     @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
     @IBOutlet weak var yearTextField: UITextField!
@@ -31,9 +31,11 @@ final class WeatherReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showActivity(withTitle: "Loading...", andMessage: nil)
         self.fetchReport(forLocation: .unitedKingdom)
         self.updateYears()
         self.configureUI()
+        self.hideActivity()
     }
     
     private func configureUI() {
@@ -122,11 +124,13 @@ final class WeatherReportViewController: UIViewController {
     
     @IBAction private func locationChanged(_ sender: Any?) {
         
+        self.showActivity(withTitle: "Loading...", andMessage: nil)
         guard let selectedLocation = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex) else { return }
         
         self.fetchReport(forLocation: Location.location(fromString: selectedLocation))
         self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
         self.updateYears()
+        self.hideActivity()
     }
 }
 
@@ -165,5 +169,16 @@ extension WeatherReportViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.yearArray.count
+    }
+}
+
+extension WeatherReportViewController {
+    
+    func showActivity(withTitle title: String?, andMessage message: String?) {
+        ActivityIndicatorProvider.shared.showActivity(onView: self.view, withTitle: title, andMessage: message)
+    }
+    
+    func hideActivity() {
+        ActivityIndicatorProvider.shared.hideActivity()
     }
 }
