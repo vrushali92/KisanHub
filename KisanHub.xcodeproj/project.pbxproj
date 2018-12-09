@@ -7,21 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C5F140A21BCEF3900FDDF44 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5F140921BCEF3900FDDF44 /* Interactor.swift */; };
 		1C74248221B29539004314FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C74248121B29539004314FC /* AppDelegate.swift */; };
 		1C74248421B29539004314FC /* WeatherReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C74248321B29539004314FC /* WeatherReportViewController.swift */; };
 		1C74248721B29539004314FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C74248521B29539004314FC /* Main.storyboard */; };
 		1C74248921B2953B004314FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C74248821B2953B004314FC /* Assets.xcassets */; };
 		1C74248C21B2953B004314FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C74248A21B2953B004314FC /* LaunchScreen.storyboard */; };
 		1C74249721B2953B004314FC /* KisanHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C74249621B2953B004314FC /* KisanHubTests.swift */; };
-		1C7424AA21B2955F004314FC /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7424A721B2954B004314FC /* Charts.framework */; };
-		1C7424AB21B2955F004314FC /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7424A721B2954B004314FC /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C7424BF21B2A0C4004314FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7424BE21B2A0C4004314FC /* Constants.swift */; };
 		1C7ACD6C21B3AD0400B91F89 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6B21B3AD0400B91F89 /* ChartView.swift */; };
 		1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD6E21B3BC9A00B91F89 /* Record.swift */; };
 		1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */; };
 		1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9921B41E2200B91F89 /* Result.swift */; };
 		1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9C21B41FB300B91F89 /* NetworkConstants.swift */; };
-		1C7ACD9F21B4216500B91F89 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9E21B4216500B91F89 /* Interactor.swift */; };
+		1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACD9E21B4216500B91F89 /* APIClient.swift */; };
 		1C7ACDA121B4222600B91F89 /* KisanHubInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA021B4222600B91F89 /* KisanHubInteractor.swift */; };
 		1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA221B4235500B91F89 /* Parser.swift */; };
 		1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */; };
@@ -31,6 +30,8 @@
 		1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */; };
 		1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */; };
 		1CE1DF0A21B786E600F39891 /* ThreadUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0921B786E600F39891 /* ThreadUtility.swift */; };
+		5FF7977B53D55A2C7C3053EE /* Pods_KisanHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70EF342F6BD7D2D2BAF10E4D /* Pods_KisanHub.framework */; };
+		FB41C04FE6B7654043783878 /* Pods_KisanHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23007A25FE688A59E328D2DC /* Pods_KisanHubTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,27 +42,6 @@
 			remoteGlobalIDString = 1C74247D21B29539004314FC;
 			remoteInfo = KisanHub;
 		};
-		1C7424A621B2954B004314FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1C7424A121B2954B004314FC /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = Charts;
-		};
-		1C7424A821B2954B004314FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1C7424A121B2954B004314FC /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = ChartsTests;
-		};
-		1C7424AC21B2955F004314FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1C7424A121B2954B004314FC /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A58A4ED274A941CA248EA921;
-			remoteInfo = Charts;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,7 +51,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1C7424AB21B2955F004314FC /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C5F140921BCEF3900FDDF44 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		1C74247E21B29539004314FC /* KisanHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KisanHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C74248121B29539004314FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C74248321B29539004314FC /* WeatherReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportViewController.swift; sourceTree = "<group>"; };
@@ -89,14 +69,13 @@
 		1C74249221B2953B004314FC /* KisanHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KisanHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C74249621B2953B004314FC /* KisanHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubTests.swift; sourceTree = "<group>"; };
 		1C74249821B2953B004314FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1C7424A121B2954B004314FC /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Libraries/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		1C7424BE21B2A0C4004314FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C7ACD6B21B3AD0400B91F89 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		1C7ACD6E21B3BC9A00B91F89 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		1C7ACD9921B41E2200B91F89 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		1C7ACD9C21B41FB300B91F89 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
-		1C7ACD9E21B4216500B91F89 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		1C7ACD9E21B4216500B91F89 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1C7ACDA021B4222600B91F89 /* KisanHubInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubInteractor.swift; sourceTree = "<group>"; };
 		1C7ACDA221B4235500B91F89 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		1C7ACDA521B4282000B91F89 /* WeatherReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReportViewModel.swift; sourceTree = "<group>"; };
@@ -104,8 +83,14 @@
 		1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Request.swift"; sourceTree = "<group>"; };
 		1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
 		1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubDataStore.swift; sourceTree = "<group>"; };
+		1CBB6F0E76AFCB20479EDE45 /* Pods-KisanHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KisanHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-KisanHub/Pods-KisanHub.release.xcconfig"; sourceTree = "<group>"; };
 		1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataBuilder.swift; sourceTree = "<group>"; };
 		1CE1DF0921B786E600F39891 /* ThreadUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadUtility.swift; sourceTree = "<group>"; };
+		23007A25FE688A59E328D2DC /* Pods_KisanHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KisanHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC633B3292BB5CF9C32C62C /* Pods-KisanHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KisanHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KisanHubTests/Pods-KisanHubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A21AFA5696B28A661D09BDB /* Pods-KisanHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KisanHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KisanHub/Pods-KisanHub.debug.xcconfig"; sourceTree = "<group>"; };
+		70EF342F6BD7D2D2BAF10E4D /* Pods_KisanHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KisanHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB11C01D83D5C073A0B009BD /* Pods-KisanHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KisanHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KisanHubTests/Pods-KisanHubTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7424AA21B2955F004314FC /* Charts.framework in Frameworks */,
+				5FF7977B53D55A2C7C3053EE /* Pods_KisanHub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,19 +106,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB41C04FE6B7654043783878 /* Pods_KisanHubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C5F140821BCEF0C00FDDF44 /* MiddleWare */ = {
+			isa = PBXGroup;
+			children = (
+				1C7ACDA021B4222600B91F89 /* KisanHubInteractor.swift */,
+				1C5F140921BCEF3900FDDF44 /* Interactor.swift */,
+			);
+			path = MiddleWare;
+			sourceTree = "<group>";
+		};
 		1C74247521B29539004314FC = {
 			isa = PBXGroup;
 			children = (
 				1C74248021B29539004314FC /* KisanHub */,
 				1C74249521B2953B004314FC /* KisanHubTests */,
 				1C74247F21B29539004314FC /* Products */,
-				1C7424A121B2954B004314FC /* Charts.xcodeproj */,
+				F1CF529EC7B2F7A348404C3C /* Pods */,
+				FD1635BC3344EDA870D239CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,7 +145,6 @@
 		1C74248021B29539004314FC /* KisanHub */ = {
 			isa = PBXGroup;
 			children = (
-				1C74248D21B2953B004314FC /* Info.plist */,
 				1C7424AF21B2958E004314FC /* Classes */,
 				1C7424B021B29594004314FC /* Resources */,
 				1C7424B121B2959A004314FC /* Storyboard */,
@@ -166,27 +161,19 @@
 			path = KisanHubTests;
 			sourceTree = "<group>";
 		};
-		1C7424A221B2954B004314FC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1C7424A721B2954B004314FC /* Charts.framework */,
-				1C7424A921B2954B004314FC /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1C7424AF21B2958E004314FC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1C7424B221B295AA004314FC /* AppDelegate */,
 				1CE1DF0521B6DD5800F39891 /* ChartDataSource */,
 				1C7ACDAB21B57AF800B91F89 /* Database */,
-				1C7ACDA421B4280A00B91F89 /* ViewModel */,
-				1C7ACD9421B41D4300B91F89 /* Network */,
+				1C5F140821BCEF0C00FDDF44 /* MiddleWare */,
 				1C7ACD6D21B3BC8800B91F89 /* Model */,
+				1C7ACD9421B41D4300B91F89 /* Network */,
 				1C7424BD21B2A0AC004314FC /* Utilities */,
-				1C7424B821B29A97004314FC /* Views */,
-				1C7424B221B295AA004314FC /* AppDelegate */,
 				1C7424B321B295B2004314FC /* ViewControllers */,
+				1C7ACDA421B4280A00B91F89 /* ViewModel */,
+				1C7424B821B29A97004314FC /* Views */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -194,6 +181,7 @@
 		1C7424B021B29594004314FC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1C74248D21B2953B004314FC /* Info.plist */,
 				1C74248821B2953B004314FC /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -272,7 +260,7 @@
 			children = (
 				1C7ACD9921B41E2200B91F89 /* Result.swift */,
 				1C7ACD9721B41D9F00B91F89 /* NetworkSession.swift */,
-				1C7ACD9E21B4216500B91F89 /* Interactor.swift */,
+				1C7ACD9E21B4216500B91F89 /* APIClient.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -280,7 +268,6 @@
 		1C7ACD9621B41D8100B91F89 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				1C7ACDA021B4222600B91F89 /* KisanHubInteractor.swift */,
 				1C7ACDA221B4235500B91F89 /* Parser.swift */,
 				1C7ACDA721B456CF00B91F89 /* WeatherReportService.swift */,
 			);
@@ -307,8 +294,8 @@
 		1C7ACDAB21B57AF800B91F89 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				1C7ACDB521B58C6200B91F89 /* Protocol */,
 				1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */,
+				1C7ACDB521B58C6200B91F89 /* Protocol */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -329,6 +316,26 @@
 			path = ChartDataSource;
 			sourceTree = "<group>";
 		};
+		F1CF529EC7B2F7A348404C3C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A21AFA5696B28A661D09BDB /* Pods-KisanHub.debug.xcconfig */,
+				1CBB6F0E76AFCB20479EDE45 /* Pods-KisanHub.release.xcconfig */,
+				4FC633B3292BB5CF9C32C62C /* Pods-KisanHubTests.debug.xcconfig */,
+				CB11C01D83D5C073A0B009BD /* Pods-KisanHubTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD1635BC3344EDA870D239CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70EF342F6BD7D2D2BAF10E4D /* Pods_KisanHub.framework */,
+				23007A25FE688A59E328D2DC /* Pods_KisanHubTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -336,16 +343,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C74249B21B2953B004314FC /* Build configuration list for PBXNativeTarget "KisanHub" */;
 			buildPhases = (
+				E0CABD0A50ECB6AF11395C77 /* [CP] Check Pods Manifest.lock */,
 				1C74247A21B29539004314FC /* Sources */,
 				1CE1DF0B21B789E100F39891 /* Lint */,
 				1C74247B21B29539004314FC /* Frameworks */,
 				1C74247C21B29539004314FC /* Resources */,
 				1C7424AE21B2955F004314FC /* Embed Frameworks */,
+				044D2B1BA8CB858E03D6A40F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1C7424AD21B2955F004314FC /* PBXTargetDependency */,
 			);
 			name = KisanHub;
 			productName = KisanHub;
@@ -356,6 +364,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C74249E21B2953B004314FC /* Build configuration list for PBXNativeTarget "KisanHubTests" */;
 			buildPhases = (
+				1D8E4B409EAAF52CDFF8876C /* [CP] Check Pods Manifest.lock */,
 				1C74248E21B2953B004314FC /* Sources */,
 				1C74248F21B2953B004314FC /* Frameworks */,
 				1C74249021B2953B004314FC /* Resources */,
@@ -400,12 +409,6 @@
 			mainGroup = 1C74247521B29539004314FC;
 			productRefGroup = 1C74247F21B29539004314FC /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1C7424A221B2954B004314FC /* Products */;
-					ProjectRef = 1C7424A121B2954B004314FC /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1C74247D21B29539004314FC /* KisanHub */,
@@ -413,23 +416,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1C7424A721B2954B004314FC /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 1C7424A621B2954B004314FC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1C7424A921B2954B004314FC /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = 1C7424A821B2954B004314FC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1C74247C21B29539004314FC /* Resources */ = {
@@ -452,6 +438,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		044D2B1BA8CB858E03D6A40F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KisanHub/Pods-KisanHub-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KisanHub/Pods-KisanHub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1CE1DF0B21B789E100F39891 /* Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,6 +480,50 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		1D8E4B409EAAF52CDFF8876C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KisanHubTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0CABD0A50ECB6AF11395C77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KisanHub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -486,12 +540,13 @@
 				1C7ACDA321B4235500B91F89 /* Parser.swift in Sources */,
 				1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */,
 				1C74248221B29539004314FC /* AppDelegate.swift in Sources */,
-				1C7ACD9F21B4216500B91F89 /* Interactor.swift in Sources */,
+				1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */,
 				1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */,
 				1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */,
 				1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */,
 				1C7ACDA621B4282000B91F89 /* WeatherReportViewModel.swift in Sources */,
 				1C7424BF21B2A0C4004314FC /* Constants.swift in Sources */,
+				1C5F140A21BCEF3900FDDF44 /* Interactor.swift in Sources */,
 				1C7ACDA821B456CF00B91F89 /* WeatherReportService.swift in Sources */,
 				1CE1DF0A21B786E600F39891 /* ThreadUtility.swift in Sources */,
 				1C7ACD6C21B3AD0400B91F89 /* ChartView.swift in Sources */,
@@ -513,11 +568,6 @@
 			isa = PBXTargetDependency;
 			target = 1C74247D21B29539004314FC /* KisanHub */;
 			targetProxy = 1C74249321B2953B004314FC /* PBXContainerItemProxy */;
-		};
-		1C7424AD21B2955F004314FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = 1C7424AC21B2955F004314FC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -659,11 +709,12 @@
 		};
 		1C74249C21B2953B004314FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A21AFA5696B28A661D09BDB /* Pods-KisanHub.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = KisanHub/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/KisanHub/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -677,11 +728,12 @@
 		};
 		1C74249D21B2953B004314FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CBB6F0E76AFCB20479EDE45 /* Pods-KisanHub.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = KisanHub/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/KisanHub/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -695,6 +747,7 @@
 		};
 		1C74249F21B2953B004314FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FC633B3292BB5CF9C32C62C /* Pods-KisanHubTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -715,6 +768,7 @@
 		};
 		1C7424A021B2953B004314FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB11C01D83D5C073A0B009BD /* Pods-KisanHubTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
