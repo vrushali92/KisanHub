@@ -34,6 +34,7 @@ final class WeatherReportViewController: UIViewController {
         self.showActivity(withTitle: "Loading...", andMessage: nil)
         self.fetchReport(forLocation: .unitedKingdom)
         self.updateYears()
+        self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
         self.configureUI()
         self.hideActivity()
     }
@@ -142,8 +143,8 @@ extension WeatherReportViewController: WeatherReportViewModelEventsDelegate {
         case .failed(let error):
             print(error)
         case .reportAvailable:
-            if let year = self.yearTextField.text, let year1 = Int(year) {
-                self.graphView.data = self.weatherReportModel.chartData(forYear: year1)
+            if let yearString = self.yearTextField.text, let year = Int(yearString) {
+                self.graphView.data = self.weatherReportModel.chartData(forYear: year)
             }
         }
     }
