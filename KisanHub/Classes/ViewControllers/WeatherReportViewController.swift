@@ -8,15 +8,20 @@
 
 import UIKit
 import Charts
+import MBProgressHUD
 
 final class WeatherReportViewController: UIViewController {
+    
+    static private let doneButton = "Done"
+    static private let cancelButton = "Cancel"
     
     @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
     @IBOutlet weak var yearTextField: UITextField!
     @IBOutlet private weak var graphView: LineChartView!
-
-    private var yearArray = [2017, 2001, 2000, 1997, 1910]
-
+    
+    private var yearArray = [Int]()
+    private var lastSelectedYearString = String()
+    
     private lazy var weatherReportModel: WeatherReportViewModel = {
         let viewModel = WeatherReportViewModel()
         viewModel.eventDelegate = self
@@ -25,15 +30,17 @@ final class WeatherReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureUI()
+        
         self.fetchReport(forLocation: .unitedKingdom)
         self.updateYears()
+        self.configureUI()
     }
     
     private func configureUI() {
+        
         self.configureSegmentControl()
-        self.configureChart()
-        self.configureDatePickerView()
+        self.configurePickerView()
+        self.configureTextField()
     }
     
     private func configureSegmentControl() {
@@ -46,49 +53,71 @@ final class WeatherReportViewController: UIViewController {
         self.locationSegmentedControl.selectedSegmentIndex = 0
     }
     
-    private func configureDatePickerView() {
+    private func configurePickerView() {
         
-        let datePickerView = UIDatePicker()
-        datePickerView.datePickerMode = .date
-        datePickerView.addTarget(self,
-                                 action: #selector(WeatherReportViewController.dateChanged(datePickerView:)),
-                                 for: .valueChanged)
-
-        let tapGesture = UITapGestureRecognizer(target: self,
-                                                action: #selector(WeatherReportViewController.viewTapped(gestureRecognizer:)))
-
-        self.view.addGestureRecognizer(tapGesture)
+        let pickerView = UIPickerView()
+        pickerView.dataSource = self
+        pickerView.delegate = self
         
-        self.yearTextField.inputView = datePickerView
+        self.configureToolBar()
+        self.yearTextField.inputView = pickerView
     }
     
-    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+    private func configureTextField() {
         
-        self.view.endEditing(true)
-    }
-    
-    @objc func dateChanged(datePickerView: UIDatePicker) {
+        if let firstYear = self.yearArray.first {
+            self.yearTextField.text = String(firstYear)
+            self.lastSelectedYearString = self.yearTextField.text ?? ""
+        }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy"
-        self.yearTextField.text = dateFormatter.string(from: datePickerView.date)
         self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
-        self.view.endEditing(true)
     }
     
-    private func configureChart() {
-    
-        self.graphView.chartDescription?.text = "Weather Report"
+    private func configureToolBar() {
+        
+        let toolBar = UIToolbar()
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        
+        let typeSelf = type(of: self)
+        
+        let doneButton = UIBarButtonItem(title: typeSelf.doneButton,
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(WeatherReportViewController.doneClick))
+        
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let cancelButton = UIBarButtonItem(title: typeSelf.cancelButton,
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(WeatherReportViewController.cancelClick))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        self.yearTextField.inputAccessoryView = toolBar
     }
     
     private func updateYears() {
-    
         guard let yearRange = self.weatherReportModel.yearRange() else { return }
         self.yearArray = Array(yearRange)
     }
     
     private func fetchReport(forLocation location: Location) {
         self.weatherReportModel.fetchReport(forLocation: location)
+    }
+    
+    @objc func doneClick() {
+        
+        self.lastSelectedYearString = self.yearTextField.text ?? ""
+        self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
+        self.yearTextField.resignFirstResponder()
+    }
+    
+    @objc func cancelClick() {
+        self.yearTextField.text = self.lastSelectedYearString
+        self.yearTextField.resignFirstResponder()
     }
     
     @IBAction private func locationChanged(_ sender: Any?) {
@@ -113,5 +142,28 @@ extension WeatherReportViewController: WeatherReportViewModelEventsDelegate {
                 self.graphView.data = self.weatherReportModel.chartData(forYear: year1)
             }
         }
+    }
+}
+
+extension WeatherReportViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(self.yearArray[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        self.yearTextField.text = String(self.yearArray[row])
+    }
+}
+
+extension WeatherReportViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.yearArray.count
     }
 }
