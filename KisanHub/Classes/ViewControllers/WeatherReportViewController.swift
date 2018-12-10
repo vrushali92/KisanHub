@@ -18,12 +18,16 @@ final class WeatherReportViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
-    @IBOutlet private weak var yearTextField: UITextField!
+    @IBOutlet private weak var yearTextField: UITextField! {
+        didSet {
+            self.yearTextField.delegate = self
+        }
+    }
     @IBOutlet private weak var graphView: LineChartView!
     
     // MARK: - Private properties
     private var yearArray = [Int]()
-    private var lastSelectedYearString = String()
+    private var lastSelectedYearString: String?
     
     private lazy var pickerView: UIPickerView = {
         let pickerView = UIPickerView()
@@ -67,12 +71,6 @@ final class WeatherReportViewController: UIViewController {
     
     /// Configure UITextField
     private func configureTextField() {
-        
-        guard self.lastSelectedYearString == "" else { return }
-        if let firstYear = self.yearArray.first {
-            self.yearTextField.text = String(firstYear)
-            self.lastSelectedYearString = self.yearTextField.text ?? ""
-        }
         self.yearTextField.inputView = self.pickerView
     }
     
@@ -106,8 +104,11 @@ final class WeatherReportViewController: UIViewController {
     /// Update year field on tap of location segment control
     private func updateYearTextField() {
         
+        if let firstYear = self.yearArray.first {
+            self.yearTextField.text = String(firstYear)
+            self.lastSelectedYearString = String(firstYear)
+        }
         self.yearTextField.text = self.lastSelectedYearString
-        self.yearTextField.inputView = self.pickerView
     }
     
     /// Update years array on tap of location segment control
@@ -115,7 +116,6 @@ final class WeatherReportViewController: UIViewController {
         
         guard let years = self.weatherReportModel.yearRange(), !years.isEmpty else { return }
         self.yearArray = years
-        self.configureTextField()
         self.updateChart(withSelectedYear: years[0])
     }
     
@@ -138,7 +138,7 @@ final class WeatherReportViewController: UIViewController {
         
         self.lastSelectedYearString = self.yearTextField.text ?? ""
         self.yearTextField.resignFirstResponder()
-        if let selectedYear = Int(self.lastSelectedYearString) {
+        if let yearString = self.lastSelectedYearString, let selectedYear = Int(yearString) {
             self.updateChart(withSelectedYear: selectedYear)
         }
     }
@@ -155,8 +155,6 @@ final class WeatherReportViewController: UIViewController {
         self.yearTextField.resignFirstResponder()
         guard let selectedLocation = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex) else { return }
         self.fetchReport(forLocation: Location.location(fromString: selectedLocation))
-        self.updateYears()
-        self.updateYearTextField()
     }
 }
 
@@ -174,6 +172,7 @@ extension WeatherReportViewController: WeatherReportViewModelEventsDelegate {
         case .reportAvailable:
             self.hideActivity()
             self.updateYears()
+            self.updateYearTextField()
         }
     }
 }
@@ -199,5 +198,16 @@ extension WeatherReportViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.yearArray.count
+    }
+}
+
+extension WeatherReportViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField.inputView === self.pickerView,
+            let selectedYear = self.lastSelectedYearString,
+            let year = Int(selectedYear) {
+            self.pickerView.selectRow(self.yearArray.firstIndex(of: year) ?? 0, inComponent: 0, animated: true)
+        }
+        return true
     }
 }
