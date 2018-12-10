@@ -186,10 +186,6 @@ extension WeatherReportViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if let year = Int(self.lastSelectedYearString),
-            let selectedRow = self.yearArray.index(of: year) {
-            self.yearTextField.text = String(self.yearArray[selectedRow])
-        }
         self.yearTextField.text = String(self.yearArray[row])
     }
 }
