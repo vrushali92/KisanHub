@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum Location: String, CaseIterable {
+/// Location
+enum Location: String, CaseIterable, Codable {
     
     case unitedKingdom = "UK"
     case england = "England"
@@ -21,10 +22,12 @@ enum Location: String, CaseIterable {
     
 }
 
-extension Location: Codable {}
-
 extension Location {
     
+    /// Returns location from selected location string
+    ///
+    /// - Parameter string: string location from selected segment control
+    /// - Returns: enum location
     static func location(fromString string: String) -> Location {
         switch string {
         case Location.unitedKingdom.value:
@@ -41,22 +44,11 @@ extension Location {
     }
 }
 
-enum Month: Int, Decodable {
-    
-    case jan = 1
-    case feb
-    case march
-    case april
-    case may
-    case june
-    case july
-    case aug
-    case sept
-    case oct
-    case nov
-    case dec
-}
-
+/// Metrics
+///
+/// - maxTemperature: Maximum temperature
+/// - minTemperature: Minimum temperature
+/// - rainfall: Rainfall
 enum Metrics: String, CaseIterable, Decodable {
     
     case maxTemperature = "Tmax"

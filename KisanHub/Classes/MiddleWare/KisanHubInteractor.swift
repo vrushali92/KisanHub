@@ -36,22 +36,3 @@ final class KisanHubInteractor: Interactor {
         }
     }
 }
-
-final class KisanHubAPIClient: APIClient {
-    private let url: URL
-    private let session: NetworkSession
-    
-    init(baseURL: URL = NetworkConstants.baseURL, session: NetworkSession = URLSession(configuration: .default)) {
-        self.url = baseURL
-        self.session = session
-    }
-    
-    func fetchWeatherReportFor(location: Location, on completionHandler: @escaping CompletionHandler) {
-        
-        let requests = Metrics.allCases.reduce(into: [Metrics: WeatherReportService]()) { map, metric in
-            map[metric] = WeatherReportService(baseURL: self.url, location: location, matric: metric)
-        }
-        
-        requests.execute(withSession: self.session, completionHandler: completionHandler)
-    }
-}

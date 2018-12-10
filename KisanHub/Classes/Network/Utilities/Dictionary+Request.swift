@@ -10,6 +10,11 @@ import Foundation
 
 extension Dictionary where Key == Metrics, Value == WeatherReportService {
     
+    /// Executes DispatchGroup request for each metric for a particular location
+    ///
+    /// - Parameters:
+    ///   - session: NetworkSession
+    ///   - handler: CompletionHandler
     func execute(withSession session: NetworkSession, completionHandler handler: @escaping CompletionHandler) {
         
         let group = DispatchGroup()

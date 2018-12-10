@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ Used to represent state of an operation or process.
+ - success: The operation is successful and has provided associated value.
+ - failed: The operation has failed and has resulted in error.
+ */
 enum Result<Value> {
     
     case success(Value)
