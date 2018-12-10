@@ -8,32 +8,28 @@
 
 import Foundation
 
+/// Maintains cache, stores and retrive data from datastore
 final class KisanHubDataStore: DataStore {
     
+    // MARK: - Private properties
     private let fileName: String
-    
     private let directory: FileManager.SearchPathDirectory
+    
     private var inMemoryCache: [Location: RecordMap] = [:]
     private var isLoaded: Bool = false
     
     private lazy var location = FileManager.default.urls(for: self.directory, in: .userDomainMask)[0].appendingPathComponent(self.fileName)
     
-    /// <#Description#>
+    /// Initiates with filename and directory in which file to be saved
     ///
     /// - Parameters:
-    ///   - fileName: <#fileName description#>
-    ///   - directory: <#directory description#>
+    ///   - fileName: Filename
+    ///   - directory: Directory type
     init(fileName: String = "MetaData.json", directory: FileManager.SearchPathDirectory = .documentDirectory) {
         self.fileName = fileName
         self.directory = directory
     }
     
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - data: <#data description#>
-    ///   - location: <#location description#>
-    ///   - completionHandler: <#completionHandler description#>
     func save(data: RecordMap, forLocation location: Location, with completionHandler: ((Bool) -> Void)?) {
         
         do {
@@ -79,7 +75,10 @@ final class KisanHubDataStore: DataStore {
         }
     }
     
-    private func write(with completionHandler: ((Bool) -> Void)?) {
+    /// Writes data to datastore
+    ///
+    /// - Parameter completionHandler: CompletionHandler
+    private func write(with completionHandler: ComplationHandler?) {
         
         DispatchQueue.global(qos: .background).async { [cache = self.inMemoryCache, path = self.location] in
             do {

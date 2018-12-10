@@ -8,38 +8,13 @@
 
 import Foundation
 
-protocol URLRequestConvertible {
-    func asURLRequest() throws -> URLRequest
-}
-
-protocol DecodableDataService: URLRequestConvertible {
-    associatedtype Response: Decodable
-    
-    func execute(withSession session: NetworkSession, completionHandler handler: @escaping (Result<Response>) -> Void)
-}
-
-extension DecodableDataService {
-    func execute(withSession session: NetworkSession, completionHandler handler: @escaping (Result<Response>) -> Void) {
-        
-        let complationHandle: ((Result<Data>) -> Void) = { response in
-            switch response {
-            case .success(let data):
-                do {
-                    let result = try JSONDecoder().decode(Response.self, from: data)
-                    handler(.success(result))
-                } catch {
-                    handler(.failed(error))
-                }
-            case .failed(let error):
-                handler(.failed(error))
-            }
-        }
-        
-        session.execute(request: self, with: complationHandle)
-    }
-}
-
 protocol NetworkSession {
+    
+    /// Executes the request and verfies the response
+    ///
+    /// - Parameters:
+    ///   - request: URLRequest
+    ///   - completionHandler: completionHandler
     func execute(request: URLRequestConvertible, with completionHandler: @escaping (Result<Data>) -> Void)
 }
 

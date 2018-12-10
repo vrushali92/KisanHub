@@ -8,19 +8,30 @@
 
 import UIKit
 import Charts
-import MBProgressHUD
 
 final class WeatherReportViewController: UIViewController {
     
+    // MARK: - Constants
     private static let doneButton = "Done"
     private static let cancelButton = "Cancel"
+    private static let activityIndicatorTitle = "Loading chart"
     
+    // MARK: - Outlets
     @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var yearTextField: UITextField!
+    @IBOutlet private weak var yearTextField: UITextField!
     @IBOutlet private weak var graphView: LineChartView!
     
+    // MARK: - Private properties
     private var yearArray = [Int]()
     private var lastSelectedYearString = String()
+    
+    private lazy var pickerView: UIPickerView = {
+        let pickerView = UIPickerView()
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.showsSelectionIndicator = true
+        return pickerView
+    }()
     
     private lazy var weatherReportModel: WeatherReportViewModel = {
         let viewModel = WeatherReportViewModel()
@@ -28,24 +39,22 @@ final class WeatherReportViewController: UIViewController {
         return viewModel
     }()
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.showActivity(withTitle: "Loading...", andMessage: nil)
-        self.fetchReport(forLocation: .unitedKingdom)
-        self.updateYears()
-        self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
         self.configureUI()
-        self.hideActivity()
+        self.fetchReport(forLocation: .unitedKingdom)
     }
     
+    /// Configure Subviews
     private func configureUI() {
         
         self.configureSegmentControl()
-        self.configurePickerView()
+        self.configureToolBar()
         self.configureTextField()
     }
     
+    /// Configure UISegmentControl
     private func configureSegmentControl() {
         
         let title = Location.allCases.enumerated()
@@ -56,26 +65,18 @@ final class WeatherReportViewController: UIViewController {
         self.locationSegmentedControl.selectedSegmentIndex = 0
     }
     
-    private func configurePickerView() {
-        
-        let pickerView = UIPickerView()
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        
-        self.configureToolBar()
-        self.yearTextField.inputView = pickerView
-    }
-    
+    /// Configure UITextField
     private func configureTextField() {
         
+        guard self.lastSelectedYearString == "" else { return }
         if let firstYear = self.yearArray.first {
             self.yearTextField.text = String(firstYear)
             self.lastSelectedYearString = self.yearTextField.text ?? ""
         }
-        
-        self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
+        self.yearTextField.inputView = self.pickerView
     }
     
+    /// Configure Done and Cancel button of UIPickerView
     private func configureToolBar() {
         
         let toolBar = UIToolbar()
@@ -102,54 +103,82 @@ final class WeatherReportViewController: UIViewController {
         self.yearTextField.inputAccessoryView = toolBar
     }
     
-    private func updateYears() {
-        guard let yearRange = self.weatherReportModel.yearRange() else { return }
-        self.yearArray = Array(yearRange)
+    /// Update year field on tap of location segment control
+    private func updateYearTextField() {
+        
+        self.yearTextField.text = self.lastSelectedYearString
+        self.yearTextField.inputView = self.pickerView
     }
     
+    /// Update years array on tap of location segment control
+    private func updateYears() {
+        
+        guard let years = self.weatherReportModel.yearRange(), !years.isEmpty else { return }
+        self.yearArray = years
+        self.configureTextField()
+        self.updateChart(withSelectedYear: years[0])
+    }
+    
+    /// Fetch weather report based on selected location
+    ///
+    /// - Parameter location: selected location
     private func fetchReport(forLocation location: Location) {
         self.weatherReportModel.fetchReport(forLocation: location)
     }
     
-    @objc func doneClick() {
-        
-        self.lastSelectedYearString = self.yearTextField.text ?? ""
-        self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
-        self.yearTextField.resignFirstResponder()
+    /// Update chart data based on changing year from UIPickerView
+    ///
+    /// - Parameter year: selected year from UIPickerView
+    private func updateChart(withSelectedYear year: Int) {
+        self.graphView.data = self.weatherReportModel.chartData(forYear: year)
     }
     
-    @objc func cancelClick() {
+    /// Updates chart based on selected year on tap of done button
+    @objc private func doneClick() {
+        
+        self.lastSelectedYearString = self.yearTextField.text ?? ""
+        self.yearTextField.resignFirstResponder()
+        if let selectedYear = Int(self.lastSelectedYearString) {
+            self.updateChart(withSelectedYear: selectedYear)
+        }
+    }
+    
+    /// Reset to last selected year on tap of cancel
+    @objc private func cancelClick() {
         self.yearTextField.text = self.lastSelectedYearString
         self.yearTextField.resignFirstResponder()
     }
     
+    // MARK: - IBAction
     @IBAction private func locationChanged(_ sender: Any?) {
         
-        self.showActivity(withTitle: "Loading...", andMessage: nil)
+        self.yearTextField.resignFirstResponder()
         guard let selectedLocation = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex) else { return }
-        
         self.fetchReport(forLocation: Location.location(fromString: selectedLocation))
-        self.weatherReportModel.eventDelegate?.handle(event: .reportAvailable)
         self.updateYears()
-        self.hideActivity()
+        self.updateYearTextField()
     }
 }
 
+// MARK: - WeatherReportViewModelEventsDelegate
 extension WeatherReportViewController: WeatherReportViewModelEventsDelegate {
     func handle(event: WeatherReportViewModel.Event) {
         switch event {
         case .loading:
-            print("Show loading view")
+            self.showActivity(withTitle: type(of: self).activityIndicatorTitle, andMessage: nil)
+            
         case .failed(let error):
+            self.hideActivity()
             print(error)
+            
         case .reportAvailable:
-            if let yearString = self.yearTextField.text, let year = Int(yearString) {
-                self.graphView.data = self.weatherReportModel.chartData(forYear: year)
-            }
+            self.hideActivity()
+            self.updateYears()
         }
     }
 }
 
+// MARK: - UIPickerViewDelegate
 extension WeatherReportViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -157,29 +186,22 @@ extension WeatherReportViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        if let year = Int(self.lastSelectedYearString),
+            let selectedRow = self.yearArray.index(of: year) {
+            self.yearTextField.text = String(self.yearArray[selectedRow])
+        }
         self.yearTextField.text = String(self.yearArray[row])
     }
 }
 
+// MARK: - UIPickerViewDataSource
 extension WeatherReportViewController: UIPickerViewDataSource {
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.yearArray.count
-    }
-}
-
-extension WeatherReportViewController {
-    
-    func showActivity(withTitle title: String?, andMessage message: String?) {
-        ActivityIndicatorProvider.shared.showActivity(onView: self.view, withTitle: title, andMessage: message)
-    }
-    
-    func hideActivity() {
-        ActivityIndicatorProvider.shared.hideActivity()
     }
 }

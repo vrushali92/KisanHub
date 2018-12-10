@@ -10,6 +10,7 @@ import Foundation
 
 typealias RecordMap = [Metrics: [Record]]
 
+/// Network Constants
 enum NetworkConstants {
     
     static let baseURL = URL(string: "https://s3.eu-west-2.amazonaws.com/interview-question-data/metoffice/")!
@@ -17,6 +18,7 @@ enum NetworkConstants {
     static let defaultTimeout: TimeInterval = 30
 }
 
+/// Type of response error
 enum ResponseError: Error {
     case invalidResponse
     case noDataAvailable

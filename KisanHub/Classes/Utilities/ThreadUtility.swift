@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// Executes provided closure on main thred
+///
+/// - Parameter workItem: Work item closure to be executed
 func performOnMain(_ work: @escaping () -> Void) {
     if Thread.isMainThread {
         work()

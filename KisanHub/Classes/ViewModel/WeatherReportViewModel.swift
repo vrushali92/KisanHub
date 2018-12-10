@@ -9,25 +9,32 @@
 import Foundation
 import Charts
 
+/// Handles WeatherReportViewModel's event
 protocol WeatherReportViewModelEventsDelegate: AnyObject {
     func handle(event: WeatherReportViewModel.Event)
 }
 
 final class WeatherReportViewModel {
     
+    /// Chart data state
     enum Event {
         case loading
         case reportAvailable
         case failed(Error)
     }
     
+    // MARK: - Private properties
     private let interactor: Interactor = KisanHubInteractor()
     private var records: RecordMap?
     
+    /// Event delegate object
     weak var eventDelegate: WeatherReportViewModelEventsDelegate?
     
+    /// Fetch report based on selected location
+    ///
+    /// - Parameter location: selected location
     func fetchReport(forLocation location: Location) {
-        
+        self.eventDelegate?.handle(event: .loading)
         self.interactor.fetchWeatherReportFor(location: location) {[weak self] result in
             performOnMain {
                 switch result {
@@ -41,21 +48,28 @@ final class WeatherReportViewModel {
         }
     }
     
+    /// Get chartdata based on selected year
+    ///
+    /// - Parameter year: selected year
+    /// - Returns: Data in chart data format
     func chartData(forYear year: Int) -> LineChartData? {
         guard let records = self.records else { return nil }
         
         return ChartDataBuilder.prepareChartData(fromRecords: records, year: year)
     }
     
+    /// Sorts and removes duplicate years from records
+    ///
+    /// - Returns: array of year from records
     func yearRange() -> [Int]? {
         
         guard let records = self.records else {
             return nil
         }
         
-        var sortedYears = [Int]()
+        var sortedYears = Set<Int>()
         for element in records {
-            sortedYears = element.value.compactMap { $0.year }
+            sortedYears = Set(element.value.compactMap { $0.year })
         }
         let objects = Set(sortedYears.map { $0 }).sorted(by: >)
         return objects
