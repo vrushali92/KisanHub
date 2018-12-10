@@ -8,10 +8,10 @@
 
 import Foundation
 
-/// Model class to store record
+/// Represents individual record information for verious metrics e.g. Tmax/Tmin/Rainfall
 struct Record: Codable {
     
-    /// Value for Metric: Tmax/Tmin/Rainfall
+    /// Metric value
     let value: Double
     
     /// Year
