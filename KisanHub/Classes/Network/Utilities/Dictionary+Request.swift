@@ -31,9 +31,12 @@ extension Dictionary where Key == Metrics, Value == WeatherReportService {
         
         group.notify(queue: DispatchQueue.global()) {
             
-            guard !responseMap.isEmpty else { return }
+            guard !responseMap.isEmpty else {
+                handler(.failed(ResponseError.noDataAvailable))
+                return
+            }
             
-            handler(Result.success(responseMap))
+            handler(.success(responseMap))
         }
     }
 }
