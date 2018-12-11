@@ -9,7 +9,7 @@
 import Foundation
 
 /// Represents individual record information for verious metrics e.g. Tmax/Tmin/Rainfall
-struct Record: Codable {
+struct Record: Codable, Equatable {
     
     /// Metric value
     let value: Double

@@ -30,6 +30,12 @@
 		1CCD74BF21BE0D5B008D5FD0 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74BE21BE0D5B008D5FD0 /* Request.swift */; };
 		1CCD74C121BE0DA1008D5FD0 /* WeatherReportViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74C021BE0DA1008D5FD0 /* WeatherReportViewController+ActivityIndicator.swift */; };
 		1CCD74C321BE1750008D5FD0 /* KisanHubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74C221BE1750008D5FD0 /* KisanHubAPIClient.swift */; };
+		1CCD74C521BEB757008D5FD0 /* NetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74C421BEB757008D5FD0 /* NetworkSessionMock.swift */; };
+		1CCD74C721BEB93A008D5FD0 /* KisanHubAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74C621BEB93A008D5FD0 /* KisanHubAPIClientTests.swift */; };
+		1CCD74C921BED6FC008D5FD0 /* KisanHubInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74C821BED6FC008D5FD0 /* KisanHubInteractorTests.swift */; };
+		1CCD74CD21BF558B008D5FD0 /* DatastoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74CC21BF558B008D5FD0 /* DatastoreMock.swift */; };
+		1CCD74CF21BF5A9F008D5FD0 /* WeatherReportViewController+UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74CE21BF5A9F008D5FD0 /* WeatherReportViewController+UIPickerView.swift */; };
+		1CCD74D121BF64CA008D5FD0 /* KisanHubAPIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74D021BF64CA008D5FD0 /* KisanHubAPIClientMock.swift */; };
 		1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */; };
 		1CE1DF0A21B786E600F39891 /* ThreadUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE1DF0921B786E600F39891 /* ThreadUtility.swift */; };
 		5FF7977B53D55A2C7C3053EE /* Pods_KisanHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70EF342F6BD7D2D2BAF10E4D /* Pods_KisanHub.framework */; };
@@ -88,6 +94,12 @@
 		1CCD74BE21BE0D5B008D5FD0 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		1CCD74C021BE0DA1008D5FD0 /* WeatherReportViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherReportViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		1CCD74C221BE1750008D5FD0 /* KisanHubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubAPIClient.swift; sourceTree = "<group>"; };
+		1CCD74C421BEB757008D5FD0 /* NetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionMock.swift; sourceTree = "<group>"; };
+		1CCD74C621BEB93A008D5FD0 /* KisanHubAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubAPIClientTests.swift; sourceTree = "<group>"; };
+		1CCD74C821BED6FC008D5FD0 /* KisanHubInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubInteractorTests.swift; sourceTree = "<group>"; };
+		1CCD74CC21BF558B008D5FD0 /* DatastoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatastoreMock.swift; sourceTree = "<group>"; };
+		1CCD74CE21BF5A9F008D5FD0 /* WeatherReportViewController+UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherReportViewController+UIPickerView.swift"; sourceTree = "<group>"; };
+		1CCD74D021BF64CA008D5FD0 /* KisanHubAPIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubAPIClientMock.swift; sourceTree = "<group>"; };
 		1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataBuilder.swift; sourceTree = "<group>"; };
 		1CE1DF0921B786E600F39891 /* ThreadUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadUtility.swift; sourceTree = "<group>"; };
 		23007A25FE688A59E328D2DC /* Pods_KisanHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KisanHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +173,11 @@
 			children = (
 				1C74249621B2953B004314FC /* KisanHubTests.swift */,
 				1C74249821B2953B004314FC /* Info.plist */,
+				1CCD74C421BEB757008D5FD0 /* NetworkSessionMock.swift */,
+				1CCD74C621BEB93A008D5FD0 /* KisanHubAPIClientTests.swift */,
+				1CCD74C821BED6FC008D5FD0 /* KisanHubInteractorTests.swift */,
+				1CCD74CC21BF558B008D5FD0 /* DatastoreMock.swift */,
+				1CCD74D021BF64CA008D5FD0 /* KisanHubAPIClientMock.swift */,
 			);
 			path = KisanHubTests;
 			sourceTree = "<group>";
@@ -212,6 +229,7 @@
 			children = (
 				1C74248321B29539004314FC /* WeatherReportViewController.swift */,
 				1CCD74C021BE0DA1008D5FD0 /* WeatherReportViewController+ActivityIndicator.swift */,
+				1CCD74CE21BF5A9F008D5FD0 /* WeatherReportViewController+UIPickerView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -527,6 +545,7 @@
 				1CCD74BD21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift in Sources */,
 				1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */,
 				1C7ACD9D21B41FB300B91F89 /* NetworkConstants.swift in Sources */,
+				1CCD74CF21BF5A9F008D5FD0 /* WeatherReportViewController+UIPickerView.swift in Sources */,
 				1CE1DF0821B6DD7600F39891 /* ChartDataBuilder.swift in Sources */,
 				1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */,
 				1C74248221B29539004314FC /* AppDelegate.swift in Sources */,
@@ -550,6 +569,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C74249721B2953B004314FC /* KisanHubTests.swift in Sources */,
+				1CCD74D121BF64CA008D5FD0 /* KisanHubAPIClientMock.swift in Sources */,
+				1CCD74C521BEB757008D5FD0 /* NetworkSessionMock.swift in Sources */,
+				1CCD74C721BEB93A008D5FD0 /* KisanHubAPIClientTests.swift in Sources */,
+				1CCD74C921BED6FC008D5FD0 /* KisanHubInteractorTests.swift in Sources */,
+				1CCD74CD21BF558B008D5FD0 /* DatastoreMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

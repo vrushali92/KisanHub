@@ -25,7 +25,7 @@ final class KisanHubInteractor: Interactor {
             completionHandler(.success(cached))
             return
         }
-        self.client.fetchWeatherReportFor(location: location) {[dataStore = self.dataStore] result in
+         self.client.fetchWeatherReportFor(location: location) {[dataStore = self.dataStore] result in
             switch result {
             case .success(let records):
                 completionHandler(.success(records))
