@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nXq-TY-Txl">
-                                <rect key="frame" x="0.0" y="68" width="375" height="29"/>
+                                <rect key="frame" x="8" y="68.5" width="359" height="29"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -29,32 +29,42 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYr-N8-8aR" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="171" width="375" height="496"/>
+                                <rect key="frame" x="0.0" y="166.5" width="375" height="480.5"/>
                                 <color key="backgroundColor" red="1" green="0.9700731635093689" blue="0.54284536838531494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SYV-c5-LKd">
-                                <rect key="frame" x="199" y="121" width="160" height="30"/>
+                                <rect key="frame" x="279" y="116.5" width="80" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM4-nN-TKF">
+                                <rect key="frame" x="16" y="32" width="343" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nXq-TY-Txl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="A0C-Kx-LK3"/>
-                            <constraint firstItem="nXq-TY-Txl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="EFz-TC-Gzl"/>
-                            <constraint firstItem="SYV-c5-LKd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="199" id="GlW-Lk-1sl"/>
+                            <constraint firstItem="nXq-TY-Txl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-8" id="A0C-Kx-LK3"/>
+                            <constraint firstItem="SYV-c5-LKd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="GlW-Lk-1sl"/>
                             <constraint firstItem="SYr-N8-8aR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JcY-uj-jhI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SYV-c5-LKd" secondAttribute="trailing" constant="16" id="ULp-mw-XYd"/>
+                            <constraint firstItem="nXq-TY-Txl" firstAttribute="top" secondItem="rM4-nN-TKF" secondAttribute="bottom" constant="15" id="UyF-oh-uY8"/>
                             <constraint firstItem="SYr-N8-8aR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Z48-uX-t6o"/>
-                            <constraint firstItem="SYV-c5-LKd" firstAttribute="top" secondItem="nXq-TY-Txl" secondAttribute="bottom" constant="25" id="dvq-5Y-8bj"/>
-                            <constraint firstItem="SYr-N8-8aR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ikl-dl-Pbe"/>
-                            <constraint firstItem="nXq-TY-Txl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w3N-4f-HZi"/>
+                            <constraint firstItem="rM4-nN-TKF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="c3t-ug-bwq"/>
+                            <constraint firstItem="SYV-c5-LKd" firstAttribute="top" secondItem="nXq-TY-Txl" secondAttribute="bottom" constant="20" id="dvq-5Y-8bj"/>
+                            <constraint firstItem="SYr-N8-8aR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="ikl-dl-Pbe"/>
+                            <constraint firstItem="rM4-nN-TKF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="t2N-G0-JzF"/>
+                            <constraint firstItem="nXq-TY-Txl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="w3N-4f-HZi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rM4-nN-TKF" secondAttribute="trailing" constant="16" id="wkK-cC-8oO"/>
                             <constraint firstItem="SYr-N8-8aR" firstAttribute="top" secondItem="SYV-c5-LKd" secondAttribute="bottom" constant="20" id="yil-fD-sQf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="graphTitleLabel" destination="rM4-nN-TKF" id="3Ce-eV-iND"/>
                         <outlet property="graphView" destination="SYr-N8-8aR" id="dDN-gq-W10"/>
                         <outlet property="locationSegmentedControl" destination="nXq-TY-Txl" id="ZKw-r1-v1l"/>
                         <outlet property="yearTextField" destination="SYV-c5-LKd" id="XZN-3B-HGT"/>
