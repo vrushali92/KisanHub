@@ -49,11 +49,11 @@ private extension Metrics {
     var color: UIColor {
         switch self {
         case .maxTemperature:
-              return UIColor.red
+              return UIColor.Metrics.maxTemperature
         case .minTemperature:
-              return UIColor.green
+              return UIColor.Metrics.minTemperature
         case .rainfall:
-              return UIColor.blue
+              return UIColor.Metrics.rainfall
         }
     }
 }

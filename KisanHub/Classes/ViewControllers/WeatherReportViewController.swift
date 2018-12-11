@@ -72,14 +72,11 @@ final class WeatherReportViewController: UIViewController, ActivityHUDDisplaying
     private func configureChartView() {
         self.graphTitleLabel.text = type(of: self).graphTitle
         self.graphView.drawGridBackgroundEnabled = false
-        self.graphView.setScaleEnabled(false)
-        let marker = BalloonMarker(color: UIColor(white: 180 / 255, alpha: 1),
-                                   font: .systemFont(ofSize: 12),
-                                   textColor: .white,
-                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
-        marker.chartView = self.graphView
-        marker.minimumSize = CGSize(width: 80, height: 40)
-        self.graphView.marker = marker
+        self.graphView.scaleYEnabled = false
+        self.graphView.xAxis.valueFormatter = MonthAxisValueFormatter()
+        self.graphView.xAxis.granularity = 1
+        self.graphView.xAxis.drawLimitLinesBehindDataEnabled = true
+        self.weatherReportModel.configureMarker(forChartView: self.graphView)
     }
     
     /// Configure UISegmentControl
@@ -87,7 +84,9 @@ final class WeatherReportViewController: UIViewController, ActivityHUDDisplaying
         let title = Location.allCases.enumerated()
         self.locationSegmentedControl.removeAllSegments()
         for value in title {
-            self.locationSegmentedControl.insertSegment(withTitle: value.element.value, at: value.offset, animated: false)
+            self.locationSegmentedControl.insertSegment(withTitle: value.element.value,
+                                                        at: value.offset,
+                                                        animated: false)
         }
         self.locationSegmentedControl.selectedSegmentIndex = 0
     }
@@ -151,6 +150,7 @@ extension WeatherReportViewController {
     ///
     /// - Parameter year: selected year from UIPickerView
     private func updateChart(withSelectedYear year: Int) {
+        self.graphView.zoomToCenter(scaleX: 0, scaleY: 0)
         self.graphView.data = self.weatherReportModel.chartData(forYear: year)
     }
     
