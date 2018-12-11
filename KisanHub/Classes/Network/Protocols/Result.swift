@@ -31,7 +31,6 @@ enum Result<Value> {
         }
         return error
     }
-    
 }
 
 extension Result: Equatable where Value: Equatable {

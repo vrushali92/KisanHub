@@ -26,7 +26,6 @@ final class WeatherReportViewController: UIViewController {
     @IBOutlet private weak var graphView: LineChartView!
     
     // MARK: - Private properties
-    private var yearArray = [Int]()
     private var lastSelectedYearString: String?
     
     private lazy var pickerView: UIPickerView = {
@@ -43,6 +42,9 @@ final class WeatherReportViewController: UIViewController {
         return viewModel
     }()
     
+    // MARK: - Public properties
+    var yearArray = [Int]()
+
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,6 @@ final class WeatherReportViewController: UIViewController {
     
     /// Configure Subviews
     private func configureUI() {
-        
         self.configureSegmentControl()
         self.configureToolBar()
         self.configureTextField()
@@ -60,7 +61,6 @@ final class WeatherReportViewController: UIViewController {
     
     /// Configure UISegmentControl
     private func configureSegmentControl() {
-        
         let title = Location.allCases.enumerated()
         self.locationSegmentedControl.removeAllSegments()
         for value in title {
@@ -76,7 +76,6 @@ final class WeatherReportViewController: UIViewController {
     
     /// Configure Done and Cancel button of UIPickerView
     private func configureToolBar() {
-        
         let toolBar = UIToolbar()
         toolBar.isTranslucent = true
         toolBar.sizeToFit()
@@ -100,20 +99,19 @@ final class WeatherReportViewController: UIViewController {
         
         self.yearTextField.inputAccessoryView = toolBar
     }
+}
+
+extension WeatherReportViewController {
     
     /// Update year field on tap of location segment control
     private func updateYearTextField() {
-        
         if let firstYear = self.yearArray.first {
             self.yearTextField.text = String(firstYear)
-            self.lastSelectedYearString = String(firstYear)
         }
-        self.yearTextField.text = self.lastSelectedYearString
     }
     
     /// Update years array on tap of location segment control
     private func updateYears() {
-        
         guard let years = self.weatherReportModel.yearRange(), !years.isEmpty else { return }
         self.yearArray = years
         self.updateChart(withSelectedYear: years[0])
@@ -135,8 +133,7 @@ final class WeatherReportViewController: UIViewController {
     
     /// Updates chart based on selected year on tap of done button
     @objc private func doneClick() {
-        
-        self.lastSelectedYearString = self.yearTextField.text ?? ""
+        self.lastSelectedYearString = self.yearTextField.text
         self.yearTextField.resignFirstResponder()
         if let yearString = self.lastSelectedYearString, let selectedYear = Int(yearString) {
             self.updateChart(withSelectedYear: selectedYear)
@@ -145,13 +142,12 @@ final class WeatherReportViewController: UIViewController {
     
     /// Reset to last selected year on tap of cancel
     @objc private func cancelClick() {
-        self.yearTextField.text = self.lastSelectedYearString
+        self.yearTextField.text = self.lastSelectedYearString ?? ""
         self.yearTextField.resignFirstResponder()
     }
     
     // MARK: - IBAction
     @IBAction private func locationChanged(_ sender: Any?) {
-        
         self.yearTextField.resignFirstResponder()
         guard let selectedLocation = self.locationSegmentedControl.titleForSegment(at: self.locationSegmentedControl.selectedSegmentIndex) else { return }
         self.fetchReport(forLocation: Location.location(fromString: selectedLocation))
