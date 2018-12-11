@@ -18,7 +18,7 @@ Currently shows report for 4 locations i.e UK, Scotland, England, Wales
 ## Setup and Installation
 Clone from git  
 ```
-git clone https://github.com/vrushali92
+git clone https://github.com/vrushali92/KisanHub.git
 ```
 
 ## Running 
