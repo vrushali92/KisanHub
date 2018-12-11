@@ -2,9 +2,6 @@
 > This app displays weather report based on three metrics i.e Rainfall, Max and Min temperature.
 Currently shows report for 4 locations i.e UK, Scotland, England, Wales
 
-[![Swift Version][swift-image]][swift-url]
-[![License][license-image]][license-url]
-
 
 ## Features
 
