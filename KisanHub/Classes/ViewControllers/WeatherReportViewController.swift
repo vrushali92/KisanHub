@@ -9,12 +9,13 @@
 import UIKit
 import Charts
 
-final class WeatherReportViewController: UIViewController {
+final class WeatherReportViewController: UIViewController, ActivityHUDDisplaying {
     
     // MARK: - Constants
     private static let doneButton = "Done"
     private static let cancelButton = "Cancel"
     private static let activityIndicatorTitle = "Loading chart"
+    private static let graphTitle = "Kisan Hub"
     
     // MARK: - Outlets
     @IBOutlet private weak var locationSegmentedControl: UISegmentedControl!
@@ -24,6 +25,7 @@ final class WeatherReportViewController: UIViewController {
         }
     }
     @IBOutlet private weak var graphView: LineChartView!
+    @IBOutlet weak var graphTitleLabel: UILabel!
     
     // MARK: - Private properties
     private var lastSelectedYearString: String?
@@ -43,8 +45,15 @@ final class WeatherReportViewController: UIViewController {
     }()
     
     // MARK: - Public properties
-    var yearArray = [Int]()
-
+    private(set) var yearArray = [Int]()
+    var selectedYear: String? {
+        get {
+            return self.yearTextField.text
+        }
+        set {
+            self.yearTextField.text = newValue
+        }
+    }
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +66,20 @@ final class WeatherReportViewController: UIViewController {
         self.configureSegmentControl()
         self.configureToolBar()
         self.configureTextField()
+        self.configureChartView()
+    }
+    
+    private func configureChartView() {
+        self.graphTitleLabel.text = type(of: self).graphTitle
+        self.graphView.drawGridBackgroundEnabled = false
+        self.graphView.setScaleEnabled(false)
+        let marker = BalloonMarker(color: UIColor(white: 180 / 255, alpha: 1),
+                                   font: .systemFont(ofSize: 12),
+                                   textColor: .white,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        marker.chartView = self.graphView
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        self.graphView.marker = marker
     }
     
     /// Configure UISegmentControl
@@ -106,7 +129,7 @@ extension WeatherReportViewController {
     /// Update year field on tap of location segment control
     private func updateYearTextField() {
         if let firstYear = self.yearArray.first {
-            self.yearTextField.text = String(firstYear)
+            self.selectedYear = String(firstYear)
         }
     }
     
@@ -133,7 +156,7 @@ extension WeatherReportViewController {
     
     /// Updates chart based on selected year on tap of done button
     @objc private func doneClick() {
-        self.lastSelectedYearString = self.yearTextField.text
+        self.lastSelectedYearString = self.selectedYear
         self.yearTextField.resignFirstResponder()
         if let yearString = self.lastSelectedYearString, let selectedYear = Int(yearString) {
             self.updateChart(withSelectedYear: selectedYear)
@@ -142,7 +165,7 @@ extension WeatherReportViewController {
     
     /// Reset to last selected year on tap of cancel
     @objc private func cancelClick() {
-        self.yearTextField.text = self.lastSelectedYearString ?? ""
+        self.selectedYear = self.lastSelectedYearString ?? ""
         self.yearTextField.resignFirstResponder()
     }
     
@@ -170,40 +193,5 @@ extension WeatherReportViewController: WeatherReportViewModelEventsDelegate {
             self.updateYears()
             self.updateYearTextField()
         }
-    }
-}
-
-// MARK: - UIPickerViewDelegate
-extension WeatherReportViewController: UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(self.yearArray[row])
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.yearTextField.text = String(self.yearArray[row])
-    }
-}
-
-// MARK: - UIPickerViewDataSource
-extension WeatherReportViewController: UIPickerViewDataSource {
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.yearArray.count
-    }
-}
-
-extension WeatherReportViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField.inputView === self.pickerView,
-            let selectedYear = self.lastSelectedYearString,
-            let year = Int(selectedYear) {
-            self.pickerView.selectRow(self.yearArray.firstIndex(of: year) ?? 0, inComponent: 0, animated: true)
-        }
-        return true
     }
 }
