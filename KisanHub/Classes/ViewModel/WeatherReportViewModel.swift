@@ -74,4 +74,14 @@ final class WeatherReportViewModel {
         let objects = Set(sortedYears.map { $0 }).sorted(by: >)
         return objects
     }
+    
+    func configureMarker(forChartView chartView: ChartViewBase) {
+        let marker = BalloonMarker(color: UIColor.Marker.bodyColor,
+                                   font: .preferredFont(forTextStyle: .callout),
+                                   textColor: UIColor.Marker.textColor,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 16, right: 8))
+        marker.chartView = chartView
+        marker.minimumSize = CGSize(width: 40, height: 40)
+        chartView.marker = marker
+    }
 }

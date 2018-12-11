@@ -26,6 +26,8 @@
 		1C7ACDAA21B45F9000B91F89 /* Dictionary+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDA921B45F9000B91F89 /* Dictionary+Request.swift */; };
 		1C7ACDB421B58B7F00B91F89 /* DataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */; };
 		1C7ACDB721B58C9F00B91F89 /* KisanHubDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */; };
+		1CC63FAA21C010E6000BC2A8 /* MonthAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC63FA921C010E6000BC2A8 /* MonthAxisValueFormatter.swift */; };
+		1CC63FAC21C020DD000BC2A8 /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC63FAB21C020DD000BC2A8 /* UIColor+Palette.swift */; };
 		1CCD74BD21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74BC21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift */; };
 		1CCD74BF21BE0D5B008D5FD0 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74BE21BE0D5B008D5FD0 /* Request.swift */; };
 		1CCD74C321BE1750008D5FD0 /* KisanHubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD74C221BE1750008D5FD0 /* KisanHubAPIClient.swift */; };
@@ -92,6 +94,8 @@
 		1C7ACDB321B58B7F00B91F89 /* DataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreProtocol.swift; sourceTree = "<group>"; };
 		1C7ACDB621B58C9F00B91F89 /* KisanHubDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubDataStore.swift; sourceTree = "<group>"; };
 		1CBB6F0E76AFCB20479EDE45 /* Pods-KisanHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KisanHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-KisanHub/Pods-KisanHub.release.xcconfig"; sourceTree = "<group>"; };
+		1CC63FA921C010E6000BC2A8 /* MonthAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAxisValueFormatter.swift; sourceTree = "<group>"; };
+		1CC63FAB21C020DD000BC2A8 /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
 		1CCD74BC21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProvider.swift; sourceTree = "<group>"; };
 		1CCD74BE21BE0D5B008D5FD0 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		1CCD74C221BE1750008D5FD0 /* KisanHubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KisanHubAPIClient.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				1CCD74BC21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift */,
 				1C7424BE21B2A0C4004314FC /* Constants.swift */,
 				1CE1DF0921B786E600F39891 /* ThreadUtility.swift */,
+				1CC63FAB21C020DD000BC2A8 /* UIColor+Palette.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */,
+				1CC63FA921C010E6000BC2A8 /* MonthAxisValueFormatter.swift */,
 			);
 			path = ChartDataBuilder;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7ACDA121B4222600B91F89 /* KisanHubInteractor.swift in Sources */,
+				1CC63FAC21C020DD000BC2A8 /* UIColor+Palette.swift in Sources */,
 				1C7ACD9A21B41E2200B91F89 /* Result.swift in Sources */,
 				1C74248421B29539004314FC /* WeatherReportViewController.swift in Sources */,
 				1CCD74BD21BD4C0B008D5FD0 /* ActivityIndicatorProvider.swift in Sources */,
@@ -558,6 +565,7 @@
 				1C7ACD9F21B4216500B91F89 /* APIClient.swift in Sources */,
 				1C7ACD6F21B3BC9A00B91F89 /* Record.swift in Sources */,
 				1CCD74D521BF77C1008D5FD0 /* UIViewControllerActivityHUD.swift in Sources */,
+				1CC63FAA21C010E6000BC2A8 /* MonthAxisValueFormatter.swift in Sources */,
 				1C7ACD9821B41D9F00B91F89 /* NetworkSession.swift in Sources */,
 				1CCD74BF21BE0D5B008D5FD0 /* Request.swift in Sources */,
 				1CCD74D721BF7D38008D5FD0 /* BalloonMarker.swift in Sources */,
