@@ -190,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				1C7424B221B295AA004314FC /* AppDelegate */,
-				1CE1DF0521B6DD5800F39891 /* ChartDataSource */,
+				1CE1DF0521B6DD5800F39891 /* ChartDataBuilder */,
 				1C7ACDAB21B57AF800B91F89 /* Database */,
 				1C5F140821BCEF0C00FDDF44 /* MiddleWare */,
 				1C7ACD6D21B3BC8800B91F89 /* Model */,
@@ -322,12 +322,12 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		1CE1DF0521B6DD5800F39891 /* ChartDataSource */ = {
+		1CE1DF0521B6DD5800F39891 /* ChartDataBuilder */ = {
 			isa = PBXGroup;
 			children = (
 				1CE1DF0721B6DD7600F39891 /* ChartDataBuilder.swift */,
 			);
-			path = ChartDataSource;
+			path = ChartDataBuilder;
 			sourceTree = "<group>";
 		};
 		F1CF529EC7B2F7A348404C3C /* Pods */ = {
